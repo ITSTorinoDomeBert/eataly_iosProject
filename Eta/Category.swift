@@ -10,7 +10,6 @@ import Foundation
 
 class Category: EatalyService{
     
-    
     var id: Int = 0
     var position: Int = 0
     var final: Bool = false
