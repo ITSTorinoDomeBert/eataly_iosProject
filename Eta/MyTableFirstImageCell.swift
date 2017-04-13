@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 class MyTableFirstImageCell: UITableViewCell {
-    @IBOutlet weak var bigImg: UIImageView!
+    @IBOutlet weak var bigImgButton: UIButton!
 }

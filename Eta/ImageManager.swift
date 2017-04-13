@@ -29,16 +29,20 @@ class ImageManager {
         
         for (key,subjson):(String,JSON) in json["data"] {
             let thisImage = ImageItem()
-            for (key,subjson):(String,JSON) in json["images"] {
                 thisImage.box_id = subjson["boxId"].intValue
                 thisImage.url_image = subjson["urlImage"].stringValue
                 thisImage.title = subjson["title"].stringValue
                 thisImage.command = subjson["command"].stringValue
                 thisImage.foreground = subjson["foreground"].stringValue
-            }
+            
             
             images.append(thisImage)
-            }
+        }
+        print(images.last?.box_id)
+        print(images.last?.url_image)
+        print(images.last?.title)
+        print(images.last?.command)
+        print(images.last?.foreground)
         delegate?.didLoadData()
     }
 }

@@ -9,6 +9,13 @@
 import Foundation
 import UIKit
 
+
+extension MyViewController: CategoryManagerDelegate, ImageManagerDelegate {
+    func didLoadData() {
+        myTable.reloadData()
+    }
+}
+
 class MyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var myTable: UITableView! {
@@ -18,13 +25,14 @@ class MyViewController: UIViewController, UITableViewDataSource, UITableViewDele
         }
     }
     var categoryManager:CategoryManager!
+    var imageManager:ImageManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryManager  = CategoryManager()
         categoryManager.delegate = self
-   //     imageManager = ImageManager()
-   //     imageManager.delegate = self
+        imageManager = ImageManager()
+        imageManager.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,25 +44,33 @@ class MyViewController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MyTableViewCellIdentifier", for: indexPath) as! MyTableViewCell
         var category = categoryManager.categories[(indexPath as IndexPath).row]
-        cell.myLabel.text = category.name
-        do {
-            try cell.icon.image = UIImage(data: NSData(contentsOf: URL(string: Urls.ICON(id_category: category.id))!) as Data)
-        }
-        catch {
-            print(Error.self)
-        }
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ImgBig", for: indexPath) as! MyTableFirstImageCell
+            do {
+                try cell.bigImgButton.setBackgroundImage(UIImage(data: NSData(contentsOf: URL(string: imageManager.images[0].url_image)!)as Data), for: UIControlState.normal)
+            }
+            catch {
+                print(Error.self)
+            }
+            return cell
+      //  } else if indexPath.row == 0 {
+            
+        }else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyTableViewCellIdentifier", for: indexPath) as! MyTableViewCell
+            cell.myLabel.text = category.name
+            do {
+                try cell.icon.image = UIImage(data: NSData(contentsOf: URL(string: Urls.ICON(id_category: category.id))!) as Data)
+            }
+            catch {
+                print(Error.self)
+            }
         
-        return cell
+            return cell
+        }
     }
 }
 
-extension MyViewController: CategoryManagerDelegate, ImageManagerDelegate {
-    func didLoadData() {
-        myTable.reloadData()
-    }
-}
 
 /*
 /Iterate every ta
@@ -87,5 +103,12 @@ if(indexPath.row==0){
     cell.secondSmallImg.image = UIImage(contentsOfFile: "http://www.apicius.es/wp-content/uploads/2012/07/IMG-20120714-009211.jpg")
     
     return cell
-}
-else{ */
+*/
+
+
+
+
+
+
+
+
