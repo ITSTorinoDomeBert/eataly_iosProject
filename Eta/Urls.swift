@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ServiceUrls{
+class Urls{
     
     static let CATEGORY = "http://app-backend.eataly.net/Eataly/get_categories.sr?data=%7B%0A%20%20%22id_store%22%20%3A%20%227%22%0A%7D"
     static let IMAGE = "http://app-backend.eataly.net/Eataly/get_images.sr?data=%7B%22id_store%22%3A%227%22%2C%22dash_code%22%3A%22SHOPONLINE%22%7D"

@@ -7,19 +7,18 @@
 //
 
 import Foundation
+import UIKit
 
 class EatalyService {
     
-    func callService(serviceName: String, onComplete:@escaping (Data?)->()) {
+    func callService(serviceName: String, onComplete: @escaping (Data?)->()) {
         
-        let myUrls = NSURL(string: serviceName)
+        let myUrl = NSURL(string: serviceName)
         let session = URLSession.shared
         
-        let task = session.dataTask(with: myUrls! as URL) {(data, response, error) in
-            //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
+        let task = session.dataTask(with: myUrl! as URL) {(data, response, error) in
             onComplete(data!)
         }
         task.resume()
     }
-    
 }

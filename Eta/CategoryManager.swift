@@ -16,14 +16,14 @@ protocol CategoryManagerDelegate {
 
 class CategoryManager {
     
-    let serviceName = ServiceUrls.CATEGORY
+    let categoryService = Urls.CATEGORY
     var categories = [Category]()
     var service = EatalyService()
     var delegate:CategoryManagerDelegate?
     
     
     init() {
-        service.callService(serviceName: serviceName, onComplete:parseJson)
+        service.callService(serviceName: categoryService, onComplete:parseJson)
     }
     
     func parseJson(data: Data?){
@@ -36,10 +36,10 @@ class CategoryManager {
             thisCategory.position = subJson["position"].intValue
             thisCategory.final = subJson["final"].boolValue
             thisCategory.name = subJson["name"].stringValue
-            thisCategory.displayMode = subJson["displayMode"].stringValue
-            thisCategory.numberOfProducts = subJson["numberOfProducts"].intValue
-            thisCategory.imageURL = subJson["imageURL"].stringValue
-            thisCategory.thumbnailURL = subJson["thumbnailURL"].stringValue
+            thisCategory.display_mode = subJson["displayMode"].stringValue
+            thisCategory.number_of_products = subJson["numberOfProducts"].intValue
+            thisCategory.image_url = subJson["imageURL"].stringValue
+            thisCategory.thumbnail_url = subJson["thumbnailURL"].stringValue
             
             categories.append(thisCategory)
             print(getString(myCategory: categories.last!))
@@ -61,11 +61,11 @@ class CategoryManager {
             myString += "Final = \(myFinalString)\n"
         }
         myString += "Name = \(myCategory.name)\n"
-        myString += "DisplayMode = \(myCategory.displayMode)\n"
-        let myNumberProductsString = String(myCategory.numberOfProducts)
+        myString += "DisplayMode = \(myCategory.display_mode)\n"
+        let myNumberProductsString = String(myCategory.number_of_products)
         myString += "NumberOfProducts = \(myNumberProductsString)\n"
-        myString += "ImageURL = \(myCategory.imageURL)\n"
-        myString += "ThumbnailURL = \(myCategory.thumbnailURL)\n"
+        myString += "ImageURL = \(myCategory.image_url)\n"
+        myString += "ThumbnailURL = \(myCategory.thumbnail_url)\n"
         
         return myString
     }

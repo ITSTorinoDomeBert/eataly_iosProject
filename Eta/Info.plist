@@ -43,6 +43,8 @@
     </array>
     <key>NSAppTransportSecurity</key>
     <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
         <key>NSExceptionDomains</key>
         <dict>
             <key>eataly.net</key>
@@ -51,6 +53,10 @@
                 <true/>
                 <key>NSIncludesSubdomains</key>
                 <true/>
+                <key>NSExceptionMinimumTLSVersion</key>
+                <string>TLSv1.2</string>
+                <key>NSExceptionRequiresForwardSecrecy</key>
+                <false/>
             </dict>
         </dict>
     </dict>
