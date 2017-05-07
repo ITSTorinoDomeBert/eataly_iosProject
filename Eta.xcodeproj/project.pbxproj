@@ -77,13 +77,12 @@
 			isa = PBXGroup;
 			children = (
 				E1A25DC71E9659DC00CB703D /* Models */,
-				A0C1C2E11E09967700A2D111 /* Connection classes */,
-				A0C1C2CF1E0993A800A2D111 /* AppDelegate.swift */,
+				FE80EDC11EB7DCEA002AE1CF /* ViewControllers */,
 				A0C1C2D31E0993A800A2D111 /* Main.storyboard */,
+				A0C1C2CF1E0993A800A2D111 /* AppDelegate.swift */,
 				A0C1C2D61E0993A800A2D111 /* Assets.xcassets */,
 				A0C1C2D81E0993A800A2D111 /* LaunchScreen.storyboard */,
 				A0C1C2DB1E0993A800A2D111 /* Info.plist */,
-				A0C1C2D11E0993A800A2D111 /* MyViewController.swift */,
 				A0C1C2EA1E0997E500A2D111 /* MyTableFirstImageCell.swift */,
 				A0C1C2EC1E0997F700A2D111 /* MyTableSecondImageCell.swift */,
 				A0C1C2EE1E09980300A2D111 /* MyTableViewCell.swift */,
@@ -95,8 +94,7 @@
 		A0C1C2E11E09967700A2D111 /* Connection classes */ = {
 			isa = PBXGroup;
 			children = (
-				A0C1C2E21E09969B00A2D111 /* EatalyService.swift */,
-				A0C1C2E41E09972F00A2D111 /* Urls.swift */,
+				FE80EDC31EB7DEA8002AE1CF /* Base */,
 				A0C1C2E61E09975200A2D111 /* CategoryManager.swift */,
 				E13D54921E968A2B00C12449 /* ImageManager.swift */,
 			);
@@ -106,11 +104,29 @@
 		E1A25DC71E9659DC00CB703D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A0C1C2E11E09967700A2D111 /* Connection classes */,
 				A0C1C2E81E09979800A2D111 /* Category.swift */,
 				E13D54941E968C7C00C12449 /* ImageItem.swift */,
 				E1916F671E97761F00AA15CD /* Product.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		FE80EDC11EB7DCEA002AE1CF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A0C1C2D11E0993A800A2D111 /* MyViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FE80EDC31EB7DEA8002AE1CF /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				A0C1C2E21E09969B00A2D111 /* EatalyService.swift */,
+				A0C1C2E41E09972F00A2D111 /* Urls.swift */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +161,7 @@
 				TargetAttributes = {
 					A0C1C2CB1E0993A800A2D111 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = KPG78GYXEN;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -322,7 +339,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KPG78GYXEN;
 				INFOPLIST_FILE = Eta/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eataly.Eta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -334,7 +353,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KPG78GYXEN;
 				INFOPLIST_FILE = Eta/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = eataly.Eta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
