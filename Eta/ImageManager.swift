@@ -27,7 +27,7 @@ class ImageManager {
     func parseJson(data: Data?) {
         let json = JSON(data: data!)
         
-        for (_,subjson):(String,JSON) in json["data"] {
+        for (key,subjson):(String,JSON) in json["data"] {
             let thisImage = ImageItem()
                 thisImage.box_id = subjson["boxId"].intValue
                 thisImage.url_image = subjson["urlImage"].stringValue
@@ -38,11 +38,11 @@ class ImageManager {
             
             images.append(thisImage)
         }
-        print(images.last!.box_id)
-        print(images.last!.url_image)
-        print(images.last!.title)
-        print(images.last!.command)
-        print(images.last!.foreground)
+        print(images.last?.box_id)
+        print(images.last?.url_image)
+        print(images.last?.title)
+        print(images.last?.command)
+        print(images.last?.foreground)
         delegate?.didLoadData()
     }
 }

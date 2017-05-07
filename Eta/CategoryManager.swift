@@ -9,7 +9,7 @@
 import Foundation
 
 protocol CategoryManagerDelegate {
-    //Assures all the data are stored
+    
     func didLoadData()
 }
 
