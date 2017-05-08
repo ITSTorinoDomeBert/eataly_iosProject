@@ -20,7 +20,20 @@ class Urls{
     static let SUBCATEGORY = "http://app-backend.eataly.net/Eataly/get_categories.sr?data=%7B%0A%20%20%22id_store%22%20%3A%20%227%22%0A%7D"
 }
 
-
+func createUrl(baseUrl: String, parametersAndValues: [String:String]) -> String{
+    var finalUrl: String = ""
+    
+    finalUrl = baseUrl + "{\""
+    
+    for item in parametersAndValues {
+        if parametersAndValues.is {
+            <#code#>
+        }
+        finalUrl+parametersAndValues.description+"\","
+    }
+    
+    return finalUrl
+}
 /*First Call
  
  http://app-backend.eataly.net/Eataly/begin.sr
