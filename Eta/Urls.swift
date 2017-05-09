@@ -11,28 +11,26 @@ import Foundation
 class Urls{
     
     static let CATEGORY = "http://app-backend.eataly.net/Eataly/get_categories.sr?data=%7B%0A%20%20%22id_store%22%20%3A%20%227%22%0A%7D"
+    
     static let IMAGE = "http://app-backend.eataly.net/Eataly/get_images.sr?data=%7B%22id_store%22%3A%227%22%2C%22dash_code%22%3A%22SHOPONLINE%22%7D"
    
     /*Chiamata ICona*/
     static func ICON(id_category: Int) -> String{
         return "http://www.eataly.net//media/wysiwyg/appreply/\(id_category).png"
     }
-    static let SUBCATEGORY = "http://app-backend.eataly.net/Eataly/get_categories.sr?data=%7B%0A%20%20%22id_store%22%20%3A%20%227%22%0A%7D"
-}
-
-func createUrl(baseUrl: String, parametersAndValues: [String:String]) -> String{
-    var finalUrl: String = ""
+    func setCurrentCategory(category id_category: Int,id_product: Int) {
+    let SUBCATEGORY = "http://app-backend.eataly.net/Eataly/get_categories.sr?data={\"id_store\":\"7\",\"id_category\":\"\(id_category)\"}"
     
-    finalUrl = baseUrl + "{\""
+    let PRODUCTS_POSITION = "http://app-backend.eataly.net/Eataly/get_products.sr?data={\"id_category\":\"\(id_category)\",\"id_store\":\"7\",\"index\":\"0\",\"page_size\":\"10\",\"sort_type\":\"position\"}"
+    let PRODUCTS_NAME = "http://app-backend.eataly.net/Eataly/get_products.sr?data={\"id_category\":\"\(id_category)\",\"id_store\":\"7\",\"index\":\"0\",\"page_size\":\"10\",\"sort_type\":\"name\"}"
+    let PRODUCTS_PRICE = "http://app-backend.eataly.net/Eataly/get_products.sr?data={\"id_category\":\"\(id_category)\",\"id_store\":\"7\",\"index\":\"0\",\"page_size\":\"10\",\"sort_type\":\"price\"}"
+    let PRODUCTS_PRICESRANGE = "http://app-backend.eataly.net/Eataly/get_products.sr?data={\"id_category\":\"\(id_category)\",\"id_store\":\"7\",\"index\":\"0\",\"page_size\":\"10\",\"sort_type\":\"price\",\"min_price\":\"1.0\",\"max_price\":\"59.0\"}"
+    let PRODUCTS_EVENTSDATE = "http://app-backend.eataly.net/Eataly/get_products.sr?data={\"id_category\":\"\(id_category)\",\"id_store\":\"7\",\"index\":\"0\",\"page_size\":\"10\",\"sort_type\":\"events_date\"}"
     
-    for item in parametersAndValues {
-        if parametersAndValues.is {
-            <#code#>
-        }
-        finalUrl+parametersAndValues.description+"\","
+    let MOSTPOPULAR = "http://app-backend.eataly.net/Eataly/get_most_popular.sr?data={\"id_category\":\"\(id_category)\",\"id_store\":\"7\",\"sort_type\":\"position\"}"
+    
+    let DETAIL_PRODUCT = "http://app-backend.eataly.net/Eataly/get_product_info?data={\"id_product\":\"\(id_product)\",\"id_store\":\"7\",\"favorite\":\"1\"}"
     }
-    
-    return finalUrl
 }
 /*First Call
  
@@ -580,7 +578,7 @@ http://app-backend.eataly.net/Eataly/get_products.sr
 
 /************************************************************/
 
-/*Lista
+/*Lista (Una volta selezionata la categoria)
  
 http://app-backend.eataly.net/Eataly/get_categories.sr
  Parameters: {"id_store":"7","id_category":"505"}

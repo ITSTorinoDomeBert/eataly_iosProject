@@ -14,6 +14,7 @@ class Product: EatalyService {
     var id: Int = 0
     var price: Double = 0.00
     var name: String = ""
+    var producer: String = ""
     var quantity: Int = 0
     var img_url: String = ""
     
