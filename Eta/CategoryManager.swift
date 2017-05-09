@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CategoryManagerDelegate {
+protocol ManagerDelegate {
     //Assures all the data are stored
     func didLoadData()
 }
@@ -19,7 +19,7 @@ class CategoryManager {
     let categoryService = Urls.CATEGORY
     var categories = [Category]()
     var service = EatalyService()
-    var delegate:CategoryManagerDelegate?
+    var delegate:ManagerDelegate?
     
     
     init() {

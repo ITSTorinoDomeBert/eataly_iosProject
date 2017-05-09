@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-extension MyViewController: CategoryManagerDelegate, ImageManagerDelegate {
+extension MyViewController: ManagerDelegate {
     func didLoadData() {
         myTable.reloadData()
     }
@@ -40,21 +40,31 @@ class MyViewController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryManager.categories.count
+        return categoryManager.categories.count + 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var category = categoryManager.categories[(indexPath as IndexPath).row]
+        var image = imageManager.images[(indexPath as IndexPath).row]
+        guard let urlImage = NSURL(string: image.url_image) else {
+            return UITableViewCell()
+        }
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ImgBig", for: indexPath) as! MyTableFirstImageCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "imgBig", for: indexPath) as! MyTableFirstImageCell
+            guard let itemImage = UIImage.init(named: image.url_image) else {
+                return UITableViewCell()
+            }
+            cell.bigImgButton.setBackgroundImage(itemImage, for: .normal)
+           /* let cell = tableView.dequeueReusableCell(withIdentifier: "ImgBig", for: indexPath) as! MyTableFirstImageCell
             do {
                 try cell.bigImgButton.setBackgroundImage(UIImage(data: NSData(contentsOf: URL(string: imageManager.images[0].url_image)!)as Data), for: UIControlState.normal)
             }
             catch {
                 print(Error.self)
             }
-            return cell
+            return cell  */
       //  } else if indexPath.row == 0 {
+            return cell
             
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyTableViewCellIdentifier", for: indexPath) as! MyTableViewCell

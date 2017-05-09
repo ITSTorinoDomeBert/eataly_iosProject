@@ -8,17 +8,12 @@
 
 import Foundation
 
-protocol ImageManagerDelegate {
-    
-    func didLoadData()
-}
-
 class ImageManager {
     
     let serviceName = Urls.IMAGE
     var images = [ImageItem]()
     var service = EatalyService()
-    var delegate:ImageManagerDelegate?
+    var delegate:ManagerDelegate?
     
     init() {
         service.callService(serviceName: serviceName, onComplete: parseJson)
