@@ -8,6 +8,16 @@
 
 import Foundation
 
+enum URLSession{
+    
+    case CATEGORY
+    case IMAGE
+    case ICON
+    case PRODUCTS
+    case DETAIL_PRODUCTS
+    case MOSTPOUPALR
+}
+
 class Urls{
     
     static let CATEGORY = "http://app-backend.eataly.net/Eataly/get_categories.sr?data=%7B%0A%20%20%22id_store%22%20%3A%20%227%22%0A%7D"

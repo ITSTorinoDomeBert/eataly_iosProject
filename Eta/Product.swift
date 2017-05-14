@@ -11,11 +11,10 @@ import Foundation
 class Product: EatalyService {
     
     var is_in_stock: Int = 0
-    var id: Int = 0
+    let id: Int = 0
     var price: Double = 0.00
-    var name: String = ""
+    let name: String = ""
     var producer: String = ""
-    var quantity: Int = 0
-    var img_url: String = ""
+    let img_url: String = ""
     
 }
