@@ -8,16 +8,56 @@
 
 import Foundation
 
-enum URLSession{
+let BASE_URL = "http://app-backend.eataly.net/Eataly/"
+
+enum EatalyUrl{
     
     case CATEGORY
     case IMAGE
-    case ICON
-    case PRODUCTS
-    case DETAIL_PRODUCTS
-    case MOSTPOUPALR
+    case ICON(Int)
+    case PRODUCTS(Int, ProductSort)
+    case DETAIL_PRODUCT(Int)
+    case MOSTPOUPALR(Int)
+    
+    enum ProductSort {
+        case name, price, position, priceRange, eventsDate
+     //   ",\"index\":\"0\",\"page_size\":\"10\",\"sort_type\":\"price\",\"min_price\":\"1.0\",\"max_price\":\"59.0\"}"
+        var sortBy: String {
+            switch self {
+            case .name:
+                return ",\"id_store\":\"7\",\"index\":\"0\",\"page_size\":\"10\",\"sort_type\":\"name\"}"
+            case .price:
+                return ",\"id_store\":\"7\",\"index\":\"0\",\"page_size\":\"10\",\"sort_type\":\"price\"}"
+            case .position:
+                return ",\"id_store\":\"7\",\"index\":\"0\",\"page_size\":\"10\",\"sort_type\":\"position\"}"
+            case .priceRange:
+                return ",\"id_store\":\"7\",\"index\":\"0\",\"page_size\":\"10\",\"sort_type\":\"price\",\"min_price\":\"1.0\",\"max_price\":\"59.0\"}"
+            case .eventsDate:
+                return ",\"id_store\":\"7\",\"index\":\"0\",\"page_size\":\"10\",\"sort_type\":\"events_date\"}"
+            }
+        }
+    }
+    
+    var string: String{
+        switch self {
+        case .CATEGORY:
+            return BASE_URL + "get_categories.sr?data=%7B%0A%20%20%22id_store%22%20%3A%20%227%22%0A%7D"
+        case .IMAGE:
+            return BASE_URL + "get_images.sr?data=%7B%22id_store%22%3A%227%22%2C%22dash_code%22%3A%22SHOPONLINE%22%7D"
+        case .ICON(id_category: let id_category):
+                return "http://www.eataly.net//media/wysiwyg/appreply/\(id_category).png"
+        case let .PRODUCTS(id_category, evaluation):
+            return BASE_URL + "get_products.sr?data={\"id_category\":\"\(id_category)\"" + evaluation.sortBy
+        case .DETAIL_PRODUCT(id_product: let id_product):
+            return BASE_URL + "get_product_info?data={\"id_product\":\"\(id_product)\",\"id_store\":\"7\",\"favorite\":\"1\"}"
+        case .MOSTPOUPALR(id_category: let id_category):
+            return BASE_URL + "get_most_popular.sr?data={\"id_category\":\"\(id_category)\",\"id_store\":\"7\",\"sort_type\":\"position\"}"
+        }
+    }
+    
+    
 }
-
+/*
 class Urls{
     
     static let CATEGORY = "http://app-backend.eataly.net/Eataly/get_categories.sr?data=%7B%0A%20%20%22id_store%22%20%3A%20%227%22%0A%7D"
@@ -61,6 +101,11 @@ class Urls{
         return "http://app-backend.eataly.net/Eataly/get_product_info?data={\"id_product\":\"\(id_product)\",\"id_store\":\"7\",\"favorite\":\"1\"}"
     }
 }
+ 
+ 
+ */
+
+
 /*First Call
  
  http://app-backend.eataly.net/Eataly/begin.sr

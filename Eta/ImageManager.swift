@@ -10,7 +10,7 @@ import Foundation
 
 class ImageManager {
     
-    let serviceName = Urls.IMAGE
+    let serviceName = EatalyUrl.IMAGE.string
     var images = [ImageItem]()
     var service = EatalyService()
     var delegate:ManagerDelegate?

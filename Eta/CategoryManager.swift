@@ -16,7 +16,7 @@ protocol ManagerDelegate {
 
 class CategoryManager {
     
-    let categoryService = Urls.CATEGORY
+    let categoryService = EatalyUrl.CATEGORY.string
     var categories = [Category]()
     var service = EatalyService()
     var delegate:ManagerDelegate?
