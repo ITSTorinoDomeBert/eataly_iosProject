@@ -8,25 +8,18 @@
 
 import Foundation
 
-protocol ManagerDelegate {
-    //Assures all the data are stored
-    func didLoadData()
-}
 
-
-class CategoryManager {
+class CategoryManager: Manager {
     
-    let categoryService = EatalyUrl.CATEGORY.string
     var categories = [Category]()
-    var service = EatalyService()
-    var delegate:ManagerDelegate?
     
     
     init() {
-        service.callService(serviceName: categoryService, onComplete:parseJson)
+        super.init(url: .CATEGORY, connection: EatalyService())
+      //  service.callService(serviceName: categoryService.string, onComplete:parseJson)
     }
     
-    func parseJson(data: Data?){
+    override func parseJson(data: Data?){
         let json = JSON(data: data!)
         
         for (key,subJson):(String, JSON) in json["data"] {
@@ -41,33 +34,10 @@ class CategoryManager {
             thisCategory.image_url = subJson["imageURL"].stringValue
             thisCategory.thumbnail_url = subJson["thumbnailURL"].stringValue
             
-            categories.append(thisCategory)
-            print(getString(myCategory: categories.last!))
+            self.categories.append(thisCategory)
+            print(categories.last?.getString ?? "The element was not a Category")
         }
         delegate?.didLoadData()
-    }
-    
-    private func getString(myCategory: Category) -> String{
-        var myString: String = ""
-        let myIdString = String(myCategory.id)
-        myString = "ID = \(myIdString)\n"
-        let myPositionString = String(myCategory.position)
-        myString += "Position = \(myPositionString)\n"
-        if myCategory.final{
-            let myFinalString = "true"
-            myString += "Final = \(myFinalString)\n"
-        }else{
-            let myFinalString = "false"
-            myString += "Final = \(myFinalString)\n"
-        }
-        myString += "Name = \(myCategory.name)\n"
-        myString += "DisplayMode = \(myCategory.display_mode)\n"
-        let myNumberProductsString = String(myCategory.number_of_products)
-        myString += "NumberOfProducts = \(myNumberProductsString)\n"
-        myString += "ImageURL = \(myCategory.image_url)\n"
-        myString += "ThumbnailURL = \(myCategory.thumbnail_url)\n"
-        
-        return myString
     }
     
     

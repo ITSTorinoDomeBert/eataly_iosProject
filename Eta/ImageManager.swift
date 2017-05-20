@@ -8,18 +8,14 @@
 
 import Foundation
 
-class ImageManager {
+class ImageManager: Manager {
     
-    let serviceName = EatalyUrl.IMAGE.string
     var images = [ImageItem]()
-    var service = EatalyService()
-    var delegate:ManagerDelegate?
     
     init() {
-        service.callService(serviceName: serviceName, onComplete: parseJson)
     }
     
-    func parseJson(data: Data?) {
+    override func parseJson(data: Data?) {
         let json = JSON(data: data!)
         
         for (_,subjson):(String,JSON) in json["data"] {

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ImageItem: EatalyService {
+class ImageItem {
     
     var box_id: Int = 0
     var url_image: String = ""

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Product: EatalyService {
+class Product {
     
     var is_in_stock: Int = 0
     let id: Int = 0
