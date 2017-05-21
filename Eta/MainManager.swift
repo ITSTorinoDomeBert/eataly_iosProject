@@ -7,17 +7,16 @@
 //
 
 import Foundation
-
+/*
 protocol ManagerDelegate {
     //Assures all the data are stored
     func didLoadData()
 }
-
+*/
 class Manager{
     
     let serviceName: EatalyUrl
     let service: EatalyService
-    var delegate: ManagerDelegate?
     
     init(url: EatalyUrl, connection: EatalyService) {
         serviceName = url

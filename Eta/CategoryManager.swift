@@ -12,6 +12,7 @@ import Foundation
 class CategoryManager: Manager {
     
     var categories = [Category]()
+ //   var delegate: ManagerDelegate?
     
     
     init() {
@@ -37,7 +38,7 @@ class CategoryManager: Manager {
             self.categories.append(thisCategory)
             print(categories.last?.getString ?? "The element was not a Category")
         }
-        delegate?.didLoadData()
+     //   delegate?.didLoadData()
     }
     
     

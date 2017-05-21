@@ -11,8 +11,10 @@ import Foundation
 class ImageManager: Manager {
     
     var images = [ImageItem]()
+ //   var delegate: ManagerDelegate?
     
     init() {
+        super.init(url: .IMAGE, connection: EatalyService())
     }
     
     override func parseJson(data: Data?) {
@@ -34,6 +36,6 @@ class ImageManager: Manager {
         print(images.last!.title)
         print(images.last!.command)
         print(images.last!.foreground)
-        delegate?.didLoadData()
+   //     delegate?.didLoadData()
     }
 }

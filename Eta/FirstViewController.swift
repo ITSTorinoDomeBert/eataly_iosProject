@@ -10,13 +10,15 @@ import Foundation
 import UIKit
 
 
-extension MyViewController: ManagerDelegate {
+/*
+ extension MyViewController: ManagerDelegate {
     func didLoadData() {
         myTable.reloadData()
     }
 }
+ */
 
-class MyViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var myTable: UITableView! {
         didSet {
@@ -24,21 +26,49 @@ class MyViewController: UIViewController, UITableViewDataSource, UITableViewDele
             myTable.rowHeight = UITableViewAutomaticDimension;
         }
     }
-    var categoryManager:CategoryManager!
-    var imageManager:ImageManager!
+    var categoryManager:CategoryManager
+    var imageManager:ImageManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryManager  = CategoryManager()
-        categoryManager.delegate = self
+  //      categoryManager.delegate = self
         imageManager = ImageManager()
-        imageManager.delegate = self
+  //     imageManager.delegate = self
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 1
+        case 3:
+            return categoryManager.categories.count
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "bigImage", for: indexPath) as! FirstViewBigImageViewCell
+            return cell
+        default:
+            <#code#>
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+}
+/*
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoryManager.categories.count + 2
     }
@@ -80,7 +110,7 @@ class MyViewController: UIViewController, UITableViewDataSource, UITableViewDele
         }
     }
 }
-
+*/
 
 /*
 /Iterate every ta

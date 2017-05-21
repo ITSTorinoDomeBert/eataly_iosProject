@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
-class MyTableFirstImageCell: UITableViewCell {
+class FirstViewBigImageViewCell: UITableViewCell {
+    
     @IBOutlet weak var bigImgButton: UIButton!
 }

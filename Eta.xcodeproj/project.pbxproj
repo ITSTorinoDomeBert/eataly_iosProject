@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A0C1C2D01E0993A800A2D111 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2CF1E0993A800A2D111 /* AppDelegate.swift */; };
-		A0C1C2D21E0993A800A2D111 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2D11E0993A800A2D111 /* MyViewController.swift */; };
+		A0C1C2D21E0993A800A2D111 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2D11E0993A800A2D111 /* FirstViewController.swift */; };
 		A0C1C2D51E0993A800A2D111 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C1C2D31E0993A800A2D111 /* Main.storyboard */; };
 		A0C1C2D71E0993A800A2D111 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C1C2D61E0993A800A2D111 /* Assets.xcassets */; };
 		A0C1C2DA1E0993A800A2D111 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C1C2D81E0993A800A2D111 /* LaunchScreen.storyboard */; };
@@ -16,9 +16,9 @@
 		A0C1C2E51E09972F00A2D111 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2E41E09972F00A2D111 /* Urls.swift */; };
 		A0C1C2E71E09975200A2D111 /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2E61E09975200A2D111 /* CategoryManager.swift */; };
 		A0C1C2E91E09979800A2D111 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2E81E09979800A2D111 /* Category.swift */; };
-		A0C1C2EB1E0997E500A2D111 /* MyTableFirstImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2EA1E0997E500A2D111 /* MyTableFirstImageCell.swift */; };
-		A0C1C2ED1E0997F700A2D111 /* MyTableSecondImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2EC1E0997F700A2D111 /* MyTableSecondImageCell.swift */; };
-		A0C1C2EF1E09980300A2D111 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2EE1E09980300A2D111 /* MyTableViewCell.swift */; };
+		A0C1C2EB1E0997E500A2D111 /* FirstViewBigImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2EA1E0997E500A2D111 /* FirstViewBigImageViewCell.swift */; };
+		A0C1C2ED1E0997F700A2D111 /* FirstViewDoubleImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2EC1E0997F700A2D111 /* FirstViewDoubleImageViewCell.swift */; };
+		A0C1C2EF1E09980300A2D111 /* FirstViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2EE1E09980300A2D111 /* FirstViewTableViewCell.swift */; };
 		A0C1C2F11E09985900A2D111 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2F01E09985900A2D111 /* SwiftyJSON.swift */; };
 		E13D54931E968A2B00C12449 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D54921E968A2B00C12449 /* ImageManager.swift */; };
 		E13D54951E968C7C00C12449 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D54941E968C7C00C12449 /* ImageItem.swift */; };
@@ -29,7 +29,7 @@
 /* Begin PBXFileReference section */
 		A0C1C2CC1E0993A800A2D111 /* Eta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Eta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0C1C2CF1E0993A800A2D111 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A0C1C2D11E0993A800A2D111 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		A0C1C2D11E0993A800A2D111 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		A0C1C2D41E0993A800A2D111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0C1C2D61E0993A800A2D111 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0C1C2D91E0993A800A2D111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,9 +38,9 @@
 		A0C1C2E41E09972F00A2D111 /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
 		A0C1C2E61E09975200A2D111 /* CategoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
 		A0C1C2E81E09979800A2D111 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		A0C1C2EA1E0997E500A2D111 /* MyTableFirstImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableFirstImageCell.swift; sourceTree = "<group>"; };
-		A0C1C2EC1E0997F700A2D111 /* MyTableSecondImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableSecondImageCell.swift; sourceTree = "<group>"; };
-		A0C1C2EE1E09980300A2D111 /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		A0C1C2EA1E0997E500A2D111 /* FirstViewBigImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewBigImageViewCell.swift; sourceTree = "<group>"; };
+		A0C1C2EC1E0997F700A2D111 /* FirstViewDoubleImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewDoubleImageViewCell.swift; sourceTree = "<group>"; };
+		A0C1C2EE1E09980300A2D111 /* FirstViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewTableViewCell.swift; sourceTree = "<group>"; };
 		A0C1C2F01E09985900A2D111 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = SOURCE_ROOT; };
 		E13D54921E968A2B00C12449 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		E13D54941E968C7C00C12449 /* ImageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
@@ -85,9 +85,6 @@
 				A0C1C2D61E0993A800A2D111 /* Assets.xcassets */,
 				A0C1C2D81E0993A800A2D111 /* LaunchScreen.storyboard */,
 				A0C1C2DB1E0993A800A2D111 /* Info.plist */,
-				A0C1C2EA1E0997E500A2D111 /* MyTableFirstImageCell.swift */,
-				A0C1C2EC1E0997F700A2D111 /* MyTableSecondImageCell.swift */,
-				A0C1C2EE1E09980300A2D111 /* MyTableViewCell.swift */,
 				A0C1C2F01E09985900A2D111 /* SwiftyJSON.swift */,
 			);
 			path = Eta;
@@ -115,10 +112,29 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		FE6265F71ED248CF0034AEE4 /* FirstView */ = {
+			isa = PBXGroup;
+			children = (
+				A0C1C2D11E0993A800A2D111 /* FirstViewController.swift */,
+				FE6265F81ED2490D0034AEE4 /* Cell */,
+			);
+			name = FirstView;
+			sourceTree = "<group>";
+		};
+		FE6265F81ED2490D0034AEE4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A0C1C2EA1E0997E500A2D111 /* FirstViewBigImageViewCell.swift */,
+				A0C1C2EC1E0997F700A2D111 /* FirstViewDoubleImageViewCell.swift */,
+				A0C1C2EE1E09980300A2D111 /* FirstViewTableViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		FE80EDC11EB7DCEA002AE1CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A0C1C2D11E0993A800A2D111 /* MyViewController.swift */,
+				FE6265F71ED248CF0034AEE4 /* FirstView */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -208,14 +224,14 @@
 				E13D54951E968C7C00C12449 /* ImageItem.swift in Sources */,
 				A0C1C2E71E09975200A2D111 /* CategoryManager.swift in Sources */,
 				FE8B91171ECF71CA00C973D4 /* MainManager.swift in Sources */,
-				A0C1C2D21E0993A800A2D111 /* MyViewController.swift in Sources */,
+				A0C1C2D21E0993A800A2D111 /* FirstViewController.swift in Sources */,
 				A0C1C2E51E09972F00A2D111 /* Urls.swift in Sources */,
 				A0C1C2F11E09985900A2D111 /* SwiftyJSON.swift in Sources */,
 				A0C1C2D01E0993A800A2D111 /* AppDelegate.swift in Sources */,
-				A0C1C2ED1E0997F700A2D111 /* MyTableSecondImageCell.swift in Sources */,
-				A0C1C2EF1E09980300A2D111 /* MyTableViewCell.swift in Sources */,
+				A0C1C2ED1E0997F700A2D111 /* FirstViewDoubleImageViewCell.swift in Sources */,
+				A0C1C2EF1E09980300A2D111 /* FirstViewTableViewCell.swift in Sources */,
 				A0C1C2E31E09969B00A2D111 /* EatalyService.swift in Sources */,
-				A0C1C2EB1E0997E500A2D111 /* MyTableFirstImageCell.swift in Sources */,
+				A0C1C2EB1E0997E500A2D111 /* FirstViewBigImageViewCell.swift in Sources */,
 				E13D54931E968A2B00C12449 /* ImageManager.swift in Sources */,
 				A0C1C2E91E09979800A2D111 /* Category.swift in Sources */,
 				E1916F681E97761F00AA15CD /* Product.swift in Sources */,

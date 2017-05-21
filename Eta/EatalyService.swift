@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct EatalyService {
+class EatalyService {
     
     func callService(serviceName: String, onComplete: @escaping (Data?)->()) {
         
