@@ -10,6 +10,7 @@ import Foundation
 
 class ImageManager: Manager {
     
+    var image = ImageItem()
     var images = [ImageItem]()
  //   var delegate: ManagerDelegate?
     
@@ -29,7 +30,7 @@ class ImageManager: Manager {
                 thisImage.foreground = subjson["foreground"].stringValue
             
             
-            images.append(thisImage)
+          //  images.append(thisImage)
         }
         print(images.last!.box_id)
         print(images.last!.url_image)
