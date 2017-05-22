@@ -22,7 +22,7 @@ class ImageManager: Manager {
         let json = JSON(data: data!)
         
         for (_,subjson):(String,JSON) in json["data"] {
-            let thisImage = ImageItem()
+            let thisImage = ImageItem()     
                 thisImage.box_id = subjson["boxId"].intValue
                 thisImage.url_image = subjson["urlImage"].stringValue
                 thisImage.title = subjson["title"].stringValue

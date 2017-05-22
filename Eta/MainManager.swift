@@ -24,17 +24,5 @@ class Manager{
     }
     
     
-    func parseJson(jsonKey: String){
-        let json = JSON(data: serviceData!)
-        for (key,subjson):(String,JSON) in json["\(jsonKey)"] {
-            createElement()
-        }
-    }
-    
-    func createElement<T>(elementType: T, numberElements: Int, elementName: String) -> T {
-        
-        let fields: [String]
-        for _ in 0...numberElements { 
-        }
-    }
+    func parseJson(data: Data?) {}
 }
