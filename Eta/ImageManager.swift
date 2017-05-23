@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 class ImageManager: Manager {
     
-    var image = ImageItem()
     var images = [ImageItem]()
+    var image: UIImage
  //   var delegate: ManagerDelegate?
     
     init() {
@@ -21,7 +22,7 @@ class ImageManager: Manager {
     override func parseJson(data: Data?) {
         let json = JSON(data: data!)
         
-        for (_,subjson):(String,JSON) in json["data"] {
+        for (_,subjson):(String,JSON) in json["images"] {
             let thisImage = ImageItem()     
                 thisImage.box_id = subjson["boxId"].intValue
                 thisImage.url_image = subjson["urlImage"].stringValue
@@ -30,7 +31,7 @@ class ImageManager: Manager {
                 thisImage.foreground = subjson["foreground"].stringValue
             
             
-          //  images.append(thisImage)
+            self.images.append(thisImage)
         }
         print(images.last!.box_id)
         print(images.last!.url_image)
@@ -38,5 +39,10 @@ class ImageManager: Manager {
         print(images.last!.command)
         print(images.last!.foreground)
    //     delegate?.didLoadData()
+    }
+    
+    func setImage(image: UIImage, positionInArray: Int) {
+        let array: [Any]
+        self.image = UIImage.
     }
 }

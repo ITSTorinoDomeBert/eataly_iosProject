@@ -21,7 +21,7 @@ class EatalyService {
         }
         task.resume()
     }
-    
+  /*
     func callSecondService(serviceName: String) -> Data? {
         
         let myUrl = NSURL(string: serviceName)
@@ -35,5 +35,5 @@ class EatalyService {
         task.resume()
         return dataStored
     }
-
+*/
 }

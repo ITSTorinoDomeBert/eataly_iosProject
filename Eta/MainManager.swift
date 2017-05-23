@@ -16,13 +16,15 @@ protocol ManagerDelegate {
 class Manager{
     
     let serviceName: EatalyUrl
-    let serviceData: Data?
+    let serviceData: EatalyService
     
     init(url: EatalyUrl, connection: EatalyService) {
-        serviceName = url
-        serviceData = connection.callSecondService(serviceName: url.string)
+        self.serviceName = url
+        self.serviceData = connection
+        connection.callService(serviceName: self.serviceName.string, onComplete: parseJson)
     }
     
     
     func parseJson(data: Data?) {}
+    
 }
