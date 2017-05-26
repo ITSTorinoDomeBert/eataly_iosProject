@@ -13,7 +13,7 @@
 		A0C1C2D71E0993A800A2D111 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0C1C2D61E0993A800A2D111 /* Assets.xcassets */; };
 		A0C1C2DA1E0993A800A2D111 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0C1C2D81E0993A800A2D111 /* LaunchScreen.storyboard */; };
 		A0C1C2E31E09969B00A2D111 /* EatalyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2E21E09969B00A2D111 /* EatalyService.swift */; };
-		A0C1C2E51E09972F00A2D111 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2E41E09972F00A2D111 /* Urls.swift */; };
+		A0C1C2E51E09972F00A2D111 /* EatalyUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2E41E09972F00A2D111 /* EatalyUrl.swift */; };
 		A0C1C2E71E09975200A2D111 /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2E61E09975200A2D111 /* CategoryManager.swift */; };
 		A0C1C2E91E09979800A2D111 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2E81E09979800A2D111 /* Category.swift */; };
 		A0C1C2EB1E0997E500A2D111 /* FirstViewBigImageViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C1C2EA1E0997E500A2D111 /* FirstViewBigImageViewCell.swift */; };
@@ -35,7 +35,7 @@
 		A0C1C2D91E0993A800A2D111 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0C1C2DB1E0993A800A2D111 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0C1C2E21E09969B00A2D111 /* EatalyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EatalyService.swift; sourceTree = "<group>"; };
-		A0C1C2E41E09972F00A2D111 /* Urls.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		A0C1C2E41E09972F00A2D111 /* EatalyUrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EatalyUrl.swift; sourceTree = "<group>"; };
 		A0C1C2E61E09975200A2D111 /* CategoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
 		A0C1C2E81E09979800A2D111 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		A0C1C2EA1E0997E500A2D111 /* FirstViewBigImageViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewBigImageViewCell.swift; sourceTree = "<group>"; };
@@ -143,7 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				A0C1C2E21E09969B00A2D111 /* EatalyService.swift */,
-				A0C1C2E41E09972F00A2D111 /* Urls.swift */,
+				A0C1C2E41E09972F00A2D111 /* EatalyUrl.swift */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -225,7 +225,7 @@
 				A0C1C2E71E09975200A2D111 /* CategoryManager.swift in Sources */,
 				FE8B91171ECF71CA00C973D4 /* MainManager.swift in Sources */,
 				A0C1C2D21E0993A800A2D111 /* FirstViewController.swift in Sources */,
-				A0C1C2E51E09972F00A2D111 /* Urls.swift in Sources */,
+				A0C1C2E51E09972F00A2D111 /* EatalyUrl.swift in Sources */,
 				A0C1C2F11E09985900A2D111 /* SwiftyJSON.swift in Sources */,
 				A0C1C2D01E0993A800A2D111 /* AppDelegate.swift in Sources */,
 				A0C1C2ED1E0997F700A2D111 /* FirstViewDoubleImageViewCell.swift in Sources */,

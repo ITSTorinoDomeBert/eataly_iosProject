@@ -12,11 +12,10 @@ import UIKit
 class ImageManager: Manager {
     
     var images = [ImageItem]()
-    var image: UIImage
  //   var delegate: ManagerDelegate?
     
     init() {
-        super.init(url: .IMAGE, connection: EatalyService())
+        super.init(url: .IMAGE)
     }
     
     override func parseJson(data: Data?) {
@@ -41,8 +40,15 @@ class ImageManager: Manager {
    //     delegate?.didLoadData()
     }
     
-    func setImage(image: UIImage, positionInArray: Int) {
-        let array: [Any]
-        self.image = UIImage.
+    func setImage(imagePosition: Int, imageArray: [ImageItem]) -> UIImage?{
+        
+        let urlImage = imageArray[imagePosition].url_image
+        let url = URL(string: urlImage)
+        
+        let data = try? Data(contentsOf: url!)
+        let imageView = UIImage(data: data!)
+        
+        return imageView
+        
     }
 }

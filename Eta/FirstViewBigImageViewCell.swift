@@ -11,12 +11,7 @@ import UIKit
 
 class FirstViewBigImageViewCell: UITableViewCell {
     
-    @IBOutlet weak var bigImgButton: UIButton!
-    @IBOutlet weak var bigImage: UIImage?
-    
-    func setImage(image: UIImage, Imag: String) -> UIImage {
-        var connection: EatalyService()
-        connection.callService(serviceName: url, onComplete: {})
-    }
+    @IBOutlet weak var bigImgButton: UIButton?
+    @IBOutlet weak var bigImage: UIImageView!
 
 }

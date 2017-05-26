@@ -26,8 +26,8 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             myTable.rowHeight = UITableViewAutomaticDimension;
         }
     }
-    var categoryManager:CategoryManager
-    var imageManager:ImageManager
+    var categoryManager = CategoryManager()
+    var imageManager = ImageManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,18 +36,17 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         imageManager = ImageManager()
   //     imageManager.delegate = self
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
             return 1
         case 1:
             return 1
-        case 3:
+        case 2:
             return categoryManager.categories.count
         default:
             return 0
@@ -58,9 +57,20 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "bigImage", for: indexPath) as! FirstViewBigImageViewCell
+            cell.bigImage = UIImageView(image: imageManager.setImage(imagePosition: 0, imageArray: imageManager.images))
+            return cell
+            
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "doubleImage", for: indexPath) as! FirstViewDoubleImageViewCell
+            cell.firstSmallImg = UIImageView(image: imageManager.setImage(imagePosition: 1, imageArray: imageManager.images))
+            cell.secondSmallImg = UIImageView(image: imageManager.setImage(imagePosition: 2, imageArray: imageManager.images))
             return cell
         default:
-            <#code#>
+            let cell = tableView.dequeueReusableCell(withIdentifier: "category", for: indexPath) as! FirstViewTableViewCell
+            cell.arrow = UIImageView(image:#imageLiteral(resourceName: "right_arrow"))
+            cell.icon = UIImageView(image: categoryManager.setIcon(iconPosition: indexPath.row))
+            cell.myLabel.text = categoryManager.categories[indexPath.row].name
+            return cell
         }
     }
 

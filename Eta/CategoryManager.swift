@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 class CategoryManager: Manager {
@@ -16,7 +17,7 @@ class CategoryManager: Manager {
     
     
     init() {
-        super.init(url: .CATEGORY, connection: EatalyService())
+        super.init(url: .CATEGORY)
       //  service.callService(serviceName: categoryService.string, onComplete:parseJson)
     }
     
@@ -39,6 +40,16 @@ class CategoryManager: Manager {
             print(categories.last?.getString ?? "The element was not a Category")
         }
      //   delegate?.didLoadData()
+    }
+    
+    func setIcon(iconPosition: Int) -> UIImage? {
+        let stringImage = EatalyUrl.ICON(iconPosition).string
+        let url = URL(string: stringImage)
+        let data = try? Data(contentsOf: url!)
+        
+        let image = UIImage(data: data!)
+        
+        return image
     }
     
     

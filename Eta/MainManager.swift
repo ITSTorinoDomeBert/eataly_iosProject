@@ -18,7 +18,8 @@ class Manager{
     let serviceName: EatalyUrl
     let serviceData: EatalyService
     
-    init(url: EatalyUrl, connection: EatalyService) {
+    init(url: EatalyUrl) {
+        let connection = EatalyService()
         self.serviceName = url
         self.serviceData = connection
         connection.callService(serviceName: self.serviceName.string, onComplete: parseJson)
