@@ -16,13 +16,10 @@ protocol ManagerDelegate {
 class Manager{
     
     let serviceName: EatalyUrl
+    open let service = EatalyService()
     
     init(url: EatalyUrl) {
         serviceName = url
-        let connection = EatalyService()
-        
-        //Every subclass of Manager will call the parseJson method when it's creating
-        connection.callServiceEscaping(serviceName: url.string, onComplete: parseJson)
     }
     
     

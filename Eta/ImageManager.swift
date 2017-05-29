@@ -16,6 +16,7 @@ class ImageManager: Manager {
     
     init() {
         super.init(url: .IMAGE)
+        service.callServiceEscaping(serviceName: self.serviceName.string, onComplete: self.parseJson)
     }
     
     override func parseJson(data: Data?) {

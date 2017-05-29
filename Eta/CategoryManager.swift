@@ -1,4 +1,4 @@
-//
+3//
 //  CategoryManager.swift
 //  Eta
 //
@@ -18,6 +18,7 @@ class CategoryManager: Manager {
     
     init() {
         super.init(url: .CATEGORY)
+        service.callServiceEscaping(serviceName: self.serviceName.string, onComplete: self.parseJson)
     }
     
     override func parseJson(data: Data?){
