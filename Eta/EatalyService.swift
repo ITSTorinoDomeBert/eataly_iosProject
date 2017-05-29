@@ -11,7 +11,7 @@ import UIKit
 
 class EatalyService {
     
-    func callService(serviceName: String, onComplete: @escaping (Data?)->()) {
+    func callServiceEscaping(serviceName: String, onComplete: @escaping (Data?)->()) {
         
         let myUrl = NSURL(string: serviceName)
         let session = URLSession.shared
@@ -20,6 +20,23 @@ class EatalyService {
             onComplete(data!)
         }
         task.resume()
+    }
+    
+    func getImageFromUrl(urlString: String) -> UIImage{
+        let session = URLSession.shared
+        var image = #imageLiteral(resourceName: "placeholder")
+        
+        if let url = URL(string: urlString) {
+            let task = session.dataTask(with: url, completionHandler: {(data, response, error) in
+                guard let imageTest = UIImage(data: data!) else{
+                    print("Error with text: " + error.debugDescription)
+                    return
+                }
+                image = imageTest
+            })
+            task.resume()
+        }
+        return image
     }
   /*
     func callSecondService(serviceName: String) -> Data? {

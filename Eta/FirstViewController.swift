@@ -26,8 +26,8 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             myTable.rowHeight = UITableViewAutomaticDimension;
         }
     }
-    var categoryManager = CategoryManager()
-    var imageManager = ImageManager()
+    var categoryManager = CategoryManager.init()
+    var imageManager = ImageManager.init()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "category", for: indexPath) as! FirstViewTableViewCell
             cell.arrow = UIImageView(image:#imageLiteral(resourceName: "right_arrow"))
-            cell.icon = UIImageView(image: categoryManager.setIcon(iconPosition: indexPath.row))
+            cell.icon = UIImageView(image: categoryManager.setIcon(idCategory: categoryManager.categories[indexPath.row].id))
             cell.myLabel.text = categoryManager.categories[indexPath.row].name
             return cell
         }

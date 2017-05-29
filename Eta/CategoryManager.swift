@@ -18,7 +18,6 @@ class CategoryManager: Manager {
     
     init() {
         super.init(url: .CATEGORY)
-      //  service.callService(serviceName: categoryService.string, onComplete:parseJson)
     }
     
     override func parseJson(data: Data?){
@@ -42,7 +41,14 @@ class CategoryManager: Manager {
      //   delegate?.didLoadData()
     }
     
-    func setIcon(iconPosition: Int) -> UIImage? {
+    func setIcon(idCategory: Int) -> UIImage{
+        let connection = EatalyService()
+        let image = connection.getImageFromUrl(urlString: EatalyUrl.ICON(idCategory).string)
+        
+        return image
+    }
+    
+    /*func setIcon(iconPosition: Int) -> UIImage? {
         let stringImage = EatalyUrl.ICON(iconPosition).string
         let url = URL(string: stringImage)
         let data = try? Data(contentsOf: url!)
@@ -50,7 +56,7 @@ class CategoryManager: Manager {
         let image = UIImage(data: data!)
         
         return image
-    }
+    } */
     
     
 }

@@ -40,15 +40,11 @@ class ImageManager: Manager {
    //     delegate?.didLoadData()
     }
     
-    func setImage(imagePosition: Int, imageArray: [ImageItem]) -> UIImage?{
+    func setImage(imagePosition: Int, imageArray: [ImageItem]) -> UIImage{
         
-        let urlImage = imageArray[imagePosition].url_image
-        let url = URL(string: urlImage)
+        let connection = EatalyService()
+        let image = connection.getImageFromUrl(urlString: imageArray[imagePosition].url_image)
         
-        let data = try? Data(contentsOf: url!)
-        let imageView = UIImage(data: data!)
-        
-        return imageView
-        
+        return image
     }
 }

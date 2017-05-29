@@ -8,6 +8,7 @@
 
 import Foundation
 
+
 class Category {
     
     var id: Int = 0

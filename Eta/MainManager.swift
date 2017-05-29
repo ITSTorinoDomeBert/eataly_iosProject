@@ -16,13 +16,13 @@ protocol ManagerDelegate {
 class Manager{
     
     let serviceName: EatalyUrl
-    let serviceData: EatalyService
     
     init(url: EatalyUrl) {
+        serviceName = url
         let connection = EatalyService()
-        self.serviceName = url
-        self.serviceData = connection
-        connection.callService(serviceName: self.serviceName.string, onComplete: parseJson)
+        
+        //Every subclass of Manager will call the parseJson method when it's creating
+        connection.callServiceEscaping(serviceName: url.string, onComplete: parseJson)
     }
     
     
