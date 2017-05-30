@@ -18,25 +18,31 @@ import UIKit
 }
  */
 
-class FirstViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FirstViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var myTable: UITableView! {
         didSet {
-            myTable.estimatedRowHeight = 200
-            myTable.rowHeight = UITableViewAutomaticDimension;
+         //   myTable.estimatedRowHeight = 200
+         //   myTable.rowHeight = UITableViewAutomaticDimension;
         }
     }
-    var categoryManager = CategoryManager.init()
-    var imageManager = ImageManager.init()
+    var categoryManager = CategoryManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryManager  = CategoryManager()
-  //      categoryManager.delegate = self
-        imageManager = ImageManager()
-  //     imageManager.delegate = self
     }
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categoryManager.categories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "category", for: indexPath) as! FirstViewTableViewCell
+        cell.myLabel.text = categoryManager.categories[indexPath.row].name
+        return cell
+    }
+}
+    /*
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -78,6 +84,11 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.didReceiveMemoryWarning()
     }
 }
+
+*/
+
+
+
 /*
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoryManager.categories.count + 2

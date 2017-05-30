@@ -11,6 +11,6 @@ import UIKit
 
 class FirstViewTableViewCell: UITableViewCell {
     @IBOutlet weak var myLabel: UILabel!
-    @IBOutlet weak var arrow: UIImageView!
-    @IBOutlet weak var icon: UIImageView!
+  //  @IBOutlet weak var arrow: UIImageView?
+  //  @IBOutlet weak var icon: UIImageView?
 }

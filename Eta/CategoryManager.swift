@@ -1,4 +1,4 @@
-3//
+//
 //  CategoryManager.swift
 //  Eta
 //
@@ -37,7 +37,7 @@ class CategoryManager: Manager {
             thisCategory.thumbnail_url = subJson["thumbnailURL"].stringValue
             
             self.categories.append(thisCategory)
-            print(categories.last?.getString ?? "The element was not a Category")
+           // print(categories.last?.getString ?? "The element was not a Category")
         }
      //   delegate?.didLoadData()
     }
