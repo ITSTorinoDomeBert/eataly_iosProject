@@ -11,8 +11,14 @@ import UIKit
 
 class EatalyService {
     
-    func callService(serviceName: String) -> Data? {
-        let url = URL(string: serviceName)
+    let url: String
+    
+    init(eatalyUrl: EatalyUrl) {
+        self.url = eatalyUrl.string
+    }
+    
+    func callService() -> Data? {
+        let url = URL(string: self.url)
         let data = try? Data(contentsOf: url!)
         
         return data

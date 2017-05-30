@@ -13,7 +13,7 @@ class ImageManager: Manager {
     
     var images = [ImageItem]()
  //   var delegate: ManagerDelegate?
-    
+  /*
     init() {
         super.init(url: .IMAGE)
         service.callServiceEscaping(serviceName: self.serviceName.string, onComplete: self.parseJson)
@@ -47,5 +47,6 @@ class ImageManager: Manager {
         let image = connection.getImageFromUrl(urlString: imageArray[imagePosition].url_image)
         
         return image
-    }
+    } 
+ */
 }

@@ -10,42 +10,48 @@ import Foundation
 import UIKit
 
 
-class CategoryManager {
+class CategoryManager: Manager {
     
     var categories = [Category]()
  //   var delegate: ManagerDelegate?
     
-   /*
     init() {
-        super.init(url: .CATEGORY)
-        service.callServiceEscaping(serviceName: self.serviceName.string, onComplete: self.parseJson)
+        super.init(service: EatalyService(eatalyUrl: .CATEGORY))
     }
-    */
-    func parseJson(data: Data){
+    func parseJson(){
+        guard let data = self.eatalyService.callService() else {
+            print("CategoryManager.parseJson it's calling a wrong service")
+            return
+        }
         let json = JSON(data: data)
         
-        for (key,subJson):(String, JSON) in json["data"] {
-            let thisCategory = Category()
+        for (_,subJson):(String, JSON) in json["data"] {
+            let aCategory = Category()
             //Do something you want
-            thisCategory.id = subJson["id"].intValue
-            thisCategory.position = subJson["position"].intValue
-            thisCategory.final = subJson["final"].boolValue
-            thisCategory.name = subJson["name"].stringValue
-            thisCategory.display_mode = subJson["displayMode"].stringValue
-            thisCategory.number_of_products = subJson["numberOfProducts"].intValue
-            thisCategory.image_url = subJson["imageURL"].stringValue
-            thisCategory.thumbnail_url = subJson["thumbnailURL"].stringValue
+            aCategory.id = subJson["id"].intValue
+            aCategory.position = subJson["position"].intValue
+            aCategory.final = subJson["final"].boolValue
+            aCategory.name = subJson["name"].stringValue
+            aCategory.display_mode = subJson["displayMode"].stringValue
+            aCategory.number_of_products = subJson["numberOfProducts"].intValue
+            aCategory.image_url = subJson["imageURL"].stringValue
+            aCategory.thumbnail_url = subJson["thumbnailURL"].stringValue
             
-            self.categories.append(thisCategory)
+            self.categories.append(aCategory)
            // print(categories.last?.getString ?? "The element was not a Category")
         }
      //   delegate?.didLoadData()
     }
     
-    func setIcon(idCategory: Int) -> UIImage{
-        let connection = EatalyService()
-        let image = connection.getImageFromUrl(urlString: EatalyUrl.ICON(idCategory).string)
+    func setIconForCategory(position: Int) -> UIImage?{
+        let idCategory = self.categories[position].id
+        let icon = EatalyUrl.ICON(idCategory)
         
+        guard let data = EatalyService(eatalyUrl: icon).callService() else {
+            print("CategoryManager.setIcon Error wrong service")
+            return #imageLiteral(resourceName: "placeholder")
+        }
+        let image = UIImage(data: data)
         return image
     }
     

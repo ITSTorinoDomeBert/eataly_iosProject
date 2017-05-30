@@ -27,11 +27,11 @@ class FirstViewController: UIViewController, UITableViewDataSource{
         }
     } 
     var categoryManager = CategoryManager()
-    var connection = EatalyService()
+  //  var connection = EatalyService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryManager.parseJson(data: connection.callService(serviceName: EatalyUrl.CATEGORY.string)!)
+        categoryManager.parseJson()
         for element in categoryManager.categories {
             print(element.getString())
         }
@@ -45,7 +45,7 @@ class FirstViewController: UIViewController, UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "category", for: indexPath) as! FirstViewTableViewCell
         cell.myLabel.text = categoryManager.categories[indexPath.row].name
         cell.arrow?.image = #imageLiteral(resourceName: "right_arrow")
-        cell.icon?.image = UIImage(data: connection.callService(serviceName: EatalyUrl.ICON(categoryManager.categories[indexPath.row].id).string)!)
+        cell.icon?.image = categoryManager.setIconForCategory(position: indexPath.row)
         return cell
     }
  
