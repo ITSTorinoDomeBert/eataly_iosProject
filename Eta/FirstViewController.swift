@@ -18,20 +18,25 @@ import UIKit
 }
  */
 
-class FirstViewController: UIViewController, UITableViewDataSource {
+class FirstViewController: UIViewController, UITableViewDataSource{
     
     @IBOutlet weak var myTable: UITableView! {
         didSet {
          //   myTable.estimatedRowHeight = 200
          //   myTable.rowHeight = UITableViewAutomaticDimension;
         }
-    }
+    } 
     var categoryManager = CategoryManager()
+    var connection = EatalyService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categoryManager.parseJson(data: connection.callService(serviceName: EatalyUrl.CATEGORY.string)!)
+        for element in categoryManager.categories {
+            print(element.getString())
+        }
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return categoryManager.categories.count
     }
@@ -39,8 +44,11 @@ class FirstViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "category", for: indexPath) as! FirstViewTableViewCell
         cell.myLabel.text = categoryManager.categories[indexPath.row].name
+        cell.arrow?.image = #imageLiteral(resourceName: "right_arrow")
+        cell.icon?.image = UIImage(data: connection.callService(serviceName: EatalyUrl.ICON(categoryManager.categories[indexPath.row].id).string)!)
         return cell
     }
+ 
 }
     /*
     func numberOfSections(in tableView: UITableView) -> Int {

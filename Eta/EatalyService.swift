@@ -11,6 +11,13 @@ import UIKit
 
 class EatalyService {
     
+    func callService(serviceName: String) -> Data? {
+        let url = URL(string: serviceName)
+        let data = try? Data(contentsOf: url!)
+        
+        return data
+    }
+    
     func callServiceEscaping(serviceName: String, onComplete: @escaping (Data?)->()) {
         
         let myUrl = NSURL(string: serviceName)

@@ -10,19 +10,19 @@ import Foundation
 import UIKit
 
 
-class CategoryManager: Manager {
+class CategoryManager {
     
     var categories = [Category]()
  //   var delegate: ManagerDelegate?
     
-    
+   /*
     init() {
         super.init(url: .CATEGORY)
         service.callServiceEscaping(serviceName: self.serviceName.string, onComplete: self.parseJson)
     }
-    
-    override func parseJson(data: Data?){
-        let json = JSON(data: data!)
+    */
+    func parseJson(data: Data){
+        let json = JSON(data: data)
         
         for (key,subJson):(String, JSON) in json["data"] {
             let thisCategory = Category()

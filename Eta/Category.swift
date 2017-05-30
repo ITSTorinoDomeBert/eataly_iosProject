@@ -19,7 +19,7 @@ class Category {
     var number_of_products: Int = 0
     var image_url: String = ""
     var thumbnail_url: String = ""
-  /*
+  
     func getString() -> String{
         var descriptionString: String = ""
         let idString = String(self.id)
@@ -36,5 +36,5 @@ class Category {
         
         return descriptionString
     } 
- */
+ 
 }
