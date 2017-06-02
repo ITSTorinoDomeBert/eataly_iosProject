@@ -20,13 +20,17 @@ class ImageManager: Manager {
     
     override func parseJson(data: Data) {
         let json = JSON(data: data)
-        guard let index = json["data"].dictionary else {
+        guard let index = json["data"].array else {
             return
         }
-        for (key, subjson):(String,JSON) in index{
             print("Ciao! sono in Parse imageJSon e sono al primo step DATA")
+        guard let images = index.last  else {
+            return
+        }
+        for (_,subjson):(String,JSON) in images["images"] {
                 print("Ciao! PArso imageJSon e sono al secondo step IMAGES")
-            let thisImage = ImageItem()     
+            let thisImage = ImageItem()
+                thisImage.foreground = subjson[0].stringValue
                 thisImage.box_id = subjson["boxId"].intValue
                 thisImage.url_image = subjson["urlImage"].stringValue
                 thisImage.title = subjson["title"].stringValue
