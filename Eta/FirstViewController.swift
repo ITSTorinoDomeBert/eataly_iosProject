@@ -27,21 +27,30 @@ class FirstViewController: UIViewController, UITableViewDataSource{
         }
     } 
     var categoryManager = CategoryManager()
+    var imageManager = ImageManager()
   //  var connection = EatalyService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        categoryManager.parseJson()
         for element in categoryManager.categories {
             print(element.getString())
         }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categoryManager.categories.count
+        print("Stampo il numero di righe \(categoryManager.categories.count + 1)")
+        return categoryManager.categories.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "bigImage", for: indexPath) as! FirstViewBigImageViewCell
+            
+            print("\nUn po' di cose utili prima di creare la prima cella: \n indexPath.row = \(indexPath.row) e image URL = \(imageManager.images[indexPath.row].url_image)")
+            
+            cell.bigImage.image = imageManager.setImage(imagePosition: indexPath.row)
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "category", for: indexPath) as! FirstViewTableViewCell
         cell.myLabel.text = categoryManager.categories[indexPath.row].name
         cell.arrow?.image = #imageLiteral(resourceName: "right_arrow")

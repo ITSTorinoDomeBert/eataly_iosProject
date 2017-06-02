@@ -19,10 +19,15 @@ class Manager{
     
     init(service: EatalyService) {
         self.eatalyService = service
+        guard let data = self.eatalyService.callService() else {
+            print("ImageManager.parseJson it's calling a wrong service")
+            return
+        }
+        self.parseJson(data: data)
     }
     
     
-    func parseJson(data: Data?) {}
+    func parseJson(data: Data) {}
     
     func getUrlString() -> String {
         let string = self.eatalyService.url

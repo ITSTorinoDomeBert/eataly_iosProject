@@ -13,16 +13,19 @@ class ImageManager: Manager {
     
     var images = [ImageItem]()
  //   var delegate: ManagerDelegate?
-  /*
+  
     init() {
-        super.init(url: .IMAGE)
-        service.callServiceEscaping(serviceName: self.serviceName.string, onComplete: self.parseJson)
+        super.init(service: EatalyService(eatalyUrl: .IMAGE))
     }
     
-    override func parseJson(data: Data?) {
-        let json = JSON(data: data!)
-        
-        for (_,subjson):(String,JSON) in json["images"] {
+    override func parseJson(data: Data) {
+        let json = JSON(data: data)
+        guard let index = json["data"].dictionary else {
+            return
+        }
+        for (key, subjson):(String,JSON) in index{
+            print("Ciao! sono in Parse imageJSon e sono al primo step DATA")
+                print("Ciao! PArso imageJSon e sono al secondo step IMAGES")
             let thisImage = ImageItem()     
                 thisImage.box_id = subjson["boxId"].intValue
                 thisImage.url_image = subjson["urlImage"].stringValue
@@ -33,20 +36,26 @@ class ImageManager: Manager {
             
             self.images.append(thisImage)
         }
-        print(images.last!.box_id)
-        print(images.last!.url_image)
-        print(images.last!.title)
-        print(images.last!.command)
-        print(images.last!.foreground)
+        /*
+        print(images.last?.box_id)
+        print(images.last?.url_image)
+        print(images.last?.title)
+        print(images.last?.command)
+        print(images.last?.foreground)
+ */
    //     delegate?.didLoadData()
     }
     
-    func setImage(imagePosition: Int, imageArray: [ImageItem]) -> UIImage{
+    func setImage(imagePosition: Int) -> UIImage{
         
-        let connection = EatalyService()
-        let image = connection.getImageFromUrl(urlString: imageArray[imagePosition].url_image)
-        
+        let urlImage = self.images[imagePosition].url_image
+        guard let data = EatalyService(url: urlImage).callService() else {
+            return #imageLiteral(resourceName: "placeholder")
+        }
+        guard let image = UIImage(data: data) else {
+            return #imageLiteral(resourceName: "placeholder")
+        }
         return image
     } 
- */
+ 
 }

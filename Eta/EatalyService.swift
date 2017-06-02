@@ -13,6 +13,10 @@ class EatalyService {
     
     let url: String
     
+    init(url: String) {
+        self.url = url
+    }
+    
     init(eatalyUrl: EatalyUrl) {
         self.url = eatalyUrl.string
     }

@@ -45,7 +45,7 @@ enum EatalyUrl{
         case .IMAGE:
             return BASE_URL + "get_images.sr?data=%7B%22id_store%22%3A%227%22%2C%22dash_code%22%3A%22SHOPONLINE%22%7D"
         case .ICON(id_category: let id_category):
-                return "http://www.eataly.net//media/wysiwyg/appreply/\(id_category).png"
+                return "http://www.eataly.net//media/catalog/category/../../wysiwyg/appreply/\(id_category).png"
         case let .PRODUCTS(id_category, evaluation):
             return BASE_URL + "get_products.sr?data={\"id_category\":\"\(id_category)\"" + evaluation.sortBy
         case .DETAIL_PRODUCT(id_product: let id_product):

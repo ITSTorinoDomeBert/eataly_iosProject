@@ -18,11 +18,7 @@ class CategoryManager: Manager {
     init() {
         super.init(service: EatalyService(eatalyUrl: .CATEGORY))
     }
-    func parseJson(){
-        guard let data = self.eatalyService.callService() else {
-            print("CategoryManager.parseJson it's calling a wrong service")
-            return
-        }
+    override func parseJson(data: Data){
         let json = JSON(data: data)
         
         for (_,subJson):(String, JSON) in json["data"] {
@@ -51,7 +47,9 @@ class CategoryManager: Manager {
             print("CategoryManager.setIcon Error wrong service")
             return #imageLiteral(resourceName: "placeholder")
         }
-        let image = UIImage(data: data)
+        guard let image = UIImage(data: data) else {
+            return #imageLiteral(resourceName: "placeholder")
+        }
         return image
     }
     
