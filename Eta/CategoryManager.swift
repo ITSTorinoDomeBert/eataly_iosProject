@@ -7,68 +7,61 @@
 //
 
 import Foundation
+import UIKit
 
-protocol CategoryManagerDelegate {
+
+class CategoryManager: Manager {
     
-    func didLoadData()
-}
-
-
-class CategoryManager {
-    
-    let serviceName = ServiceUrls.CATEGORY
     var categories = [Category]()
-    var service = EatalyService()
-    var delegate:CategoryManagerDelegate?
-    
+ //   var delegate: ManagerDelegate?
     
     init() {
-        service.callService(serviceName: serviceName, onComplete:parseJson)
+        super.init(service: EatalyService(eatalyUrl: .CATEGORY))
     }
-    
-    func parseJson(data: Data?){
-        let json = JSON(data: data!)
+    override func parseJson(data: Data){
+        let json = JSON(data: data)
         
-        for (key,subJson):(String, JSON) in json["data"] {
-            let thisCategory = Category()
+        for (_,subJson):(String, JSON) in json["data"] {
+            let aCategory = Category()
             //Do something you want
-            thisCategory.id = subJson["id"].intValue
-            thisCategory.position = subJson["position"].intValue
-            thisCategory.final = subJson["final"].boolValue
-            thisCategory.name = subJson["name"].stringValue
-            thisCategory.displayMode = subJson["displayMode"].stringValue
-            thisCategory.numberOfProducts = subJson["numberOfProducts"].intValue
-            thisCategory.imageURL = subJson["imageURL"].stringValue
-            thisCategory.thumbnailURL = subJson["thumbnailURL"].stringValue
+            aCategory.id = subJson["id"].intValue
+            aCategory.position = subJson["position"].intValue
+            aCategory.final = subJson["final"].boolValue
+            aCategory.name = subJson["name"].stringValue
+            aCategory.display_mode = subJson["displayMode"].stringValue
+            aCategory.number_of_products = subJson["numberOfProducts"].intValue
+            aCategory.image_url = subJson["imageURL"].stringValue
+            aCategory.thumbnail_url = subJson["thumbnailURL"].stringValue
             
-            categories.append(thisCategory)
-            print(getString(myCategory: categories.last!))
+            self.categories.append(aCategory)
+           // print(categories.last?.getString ?? "The element was not a Category")
         }
-        delegate?.didLoadData()
+     //   delegate?.didLoadData()
     }
     
-    private func getString(myCategory: Category) -> String{
-        var myString: String = ""
-        let myIdString = String(myCategory.id)
-        myString = "ID = \(myIdString)\n"
-        let myPositionString = String(myCategory.position)
-        myString += "Position = \(myPositionString)\n"
-        if myCategory.final{
-            let myFinalString = "true"
-            myString += "Final = \(myFinalString)\n"
-        }else{
-            let myFinalString = "false"
-            myString += "Final = \(myFinalString)\n"
-        }
-        myString += "Name = \(myCategory.name)\n"
-        myString += "DisplayMode = \(myCategory.displayMode)\n"
-        let myNumberProductsString = String(myCategory.numberOfProducts)
-        myString += "NumberOfProducts = \(myNumberProductsString)\n"
-        myString += "ImageURL = \(myCategory.imageURL)\n"
-        myString += "ThumbnailURL = \(myCategory.thumbnailURL)\n"
+    func setIconForCategory(position: Int) -> UIImage?{
+        let idCategory = self.categories[position].id
+        let icon = EatalyUrl.ICON(idCategory)
         
-        return myString
+        guard let data = EatalyService(eatalyUrl: icon).callService() else {
+            print("CategoryManager.setIcon Error wrong service")
+            return #imageLiteral(resourceName: "placeholder")
+        }
+        guard let image = UIImage(data: data) else {
+            return #imageLiteral(resourceName: "placeholder")
+        }
+        return image
     }
+    
+    /*func setIcon(iconPosition: Int) -> UIImage? {
+        let stringImage = EatalyUrl.ICON(iconPosition).string
+        let url = URL(string: stringImage)
+        let data = try? Data(contentsOf: url!)
+        
+        let image = UIImage(data: data!)
+        
+        return image
+    } */
     
     
 }

@@ -7,19 +7,67 @@
 //
 
 import Foundation
+import UIKit
 
 class EatalyService {
     
-    func callService(serviceName: String, onComplete:@escaping (Data?)->()) {
+    let url: String
+    
+    init(url: String) {
+        self.url = url
+    }
+    
+    init(eatalyUrl: EatalyUrl) {
+        self.url = eatalyUrl.string
+    }
+    
+    func callService() -> Data? {
+        let url = URL(string: self.url)
+        let data = try? Data(contentsOf: url!)
         
-        let myUrls = NSURL(string: serviceName)
+        return data
+    }
+    
+    func callServiceEscaping(serviceName: String, onComplete: @escaping (Data?)->()) {
+        
+        let myUrl = NSURL(string: serviceName)
         let session = URLSession.shared
         
-        let task = session.dataTask(with: myUrls! as URL) {(data, response, error) in
-            //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
+        let task = session.dataTask(with: myUrl! as URL) {(data, response, error) in
             onComplete(data!)
         }
         task.resume()
     }
     
+    func getImageFromUrl(urlString: String) -> UIImage{
+        let session = URLSession.shared
+        var image = #imageLiteral(resourceName: "placeholder")
+        
+        if let url = URL(string: urlString) {
+            let task = session.dataTask(with: url, completionHandler: {(data, response, error) in
+                guard let imageTest = UIImage(data: data!) else{
+                    print("Error with text: " + error.debugDescription)
+                    return
+                }
+                image = imageTest
+            })
+            task.resume()
+        }
+        return image
+    }
+  /*
+    func callSecondService(serviceName: String) -> Data? {
+        
+        let myUrl = NSURL(string: serviceName)
+        let session = URLSession.shared
+        var dataStored: Data?
+        
+        let task = session.dataTask(with: myUrl! as URL) {(data, response, error) in
+            dataStored = data
+        }
+
+        task.resume()
+        return dataStored
+    }
+*/
 }

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MyTableSecondImageCell: UITableViewCell {
+class FirstViewDoubleImageViewCell: UITableViewCell {
     @IBOutlet weak var firstSmallImg: UIImageView!
     @IBOutlet weak var secondSmallImg: UIImageView!
 }

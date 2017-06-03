@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-class MyTableViewCell: UITableViewCell {
+class FirstViewTableViewCell: UITableViewCell {
     @IBOutlet weak var myLabel: UILabel!
-    let icon: UIImage? = nil
-    let arrowicon: UIImage? = nil
+    @IBOutlet weak var arrow: UIImageView?
+    @IBOutlet weak var icon: UIImageView?
 }
