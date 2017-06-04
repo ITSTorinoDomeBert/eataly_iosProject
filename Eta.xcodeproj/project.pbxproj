@@ -23,6 +23,10 @@
 		E13D54931E968A2B00C12449 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D54921E968A2B00C12449 /* ImageManager.swift */; };
 		E13D54951E968C7C00C12449 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D54941E968C7C00C12449 /* ImageItem.swift */; };
 		E1916F681E97761F00AA15CD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1916F671E97761F00AA15CD /* Product.swift */; };
+		FE5FC8401EE31D6500295A13 /* EatalyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5FC83F1EE31D6500295A13 /* EatalyItem.swift */; };
+		FE5FC8431EE348F300295A13 /* EatalyNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5FC8421EE348F300295A13 /* EatalyNavBar.swift */; };
+		FE5FC8451EE3490800295A13 /* NavBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE5FC8441EE3490800295A13 /* NavBarView.xib */; };
+		FE5FC8471EE37C6800295A13 /* EatalyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5FC8461EE37C6800295A13 /* EatalyNavigationController.swift */; };
 		FE8B91171ECF71CA00C973D4 /* MainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B91161ECF71CA00C973D4 /* MainManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +49,10 @@
 		E13D54921E968A2B00C12449 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		E13D54941E968C7C00C12449 /* ImageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
 		E1916F671E97761F00AA15CD /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		FE5FC83F1EE31D6500295A13 /* EatalyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EatalyItem.swift; sourceTree = "<group>"; };
+		FE5FC8421EE348F300295A13 /* EatalyNavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EatalyNavBar.swift; sourceTree = "<group>"; };
+		FE5FC8441EE3490800295A13 /* NavBarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavBarView.xib; sourceTree = "<group>"; };
+		FE5FC8461EE37C6800295A13 /* EatalyNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EatalyNavigationController.swift; sourceTree = "<group>"; };
 		FE8B91161ECF71CA00C973D4 /* MainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,7 +98,7 @@
 			path = Eta;
 			sourceTree = "<group>";
 		};
-		A0C1C2E11E09967700A2D111 /* Connection classes */ = {
+		A0C1C2E11E09967700A2D111 /* ConnectionClasses */ = {
 			isa = PBXGroup;
 			children = (
 				FE80EDC31EB7DEA8002AE1CF /* Base */,
@@ -98,18 +106,28 @@
 				FE8B91161ECF71CA00C973D4 /* MainManager.swift */,
 				E13D54921E968A2B00C12449 /* ImageManager.swift */,
 			);
-			name = "Connection classes";
+			name = ConnectionClasses;
 			sourceTree = "<group>";
 		};
 		E1A25DC71E9659DC00CB703D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A0C1C2E11E09967700A2D111 /* Connection classes */,
+				A0C1C2E11E09967700A2D111 /* ConnectionClasses */,
 				A0C1C2E81E09979800A2D111 /* Category.swift */,
+				FE5FC83F1EE31D6500295A13 /* EatalyItem.swift */,
 				E13D54941E968C7C00C12449 /* ImageItem.swift */,
 				E1916F671E97761F00AA15CD /* Product.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		FE5FC8411EE348C700295A13 /* NavBar */ = {
+			isa = PBXGroup;
+			children = (
+				FE5FC8421EE348F300295A13 /* EatalyNavBar.swift */,
+				FE5FC8441EE3490800295A13 /* NavBarView.xib */,
+			);
+			name = NavBar;
 			sourceTree = "<group>";
 		};
 		FE6265F71ED248CF0034AEE4 /* FirstView */ = {
@@ -134,6 +152,8 @@
 		FE80EDC11EB7DCEA002AE1CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FE5FC8461EE37C6800295A13 /* EatalyNavigationController.swift */,
+				FE5FC8411EE348C700295A13 /* NavBar */,
 				FE6265F71ED248CF0034AEE4 /* FirstView */,
 			);
 			name = ViewControllers;
@@ -210,6 +230,7 @@
 			files = (
 				A0C1C2DA1E0993A800A2D111 /* LaunchScreen.storyboard in Resources */,
 				A0C1C2D71E0993A800A2D111 /* Assets.xcassets in Resources */,
+				FE5FC8451EE3490800295A13 /* NavBarView.xib in Resources */,
 				A0C1C2D51E0993A800A2D111 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,12 +246,15 @@
 				A0C1C2E71E09975200A2D111 /* CategoryManager.swift in Sources */,
 				FE8B91171ECF71CA00C973D4 /* MainManager.swift in Sources */,
 				A0C1C2D21E0993A800A2D111 /* FirstViewController.swift in Sources */,
+				FE5FC8471EE37C6800295A13 /* EatalyNavigationController.swift in Sources */,
 				A0C1C2E51E09972F00A2D111 /* EatalyUrl.swift in Sources */,
 				A0C1C2F11E09985900A2D111 /* SwiftyJSON.swift in Sources */,
 				A0C1C2D01E0993A800A2D111 /* AppDelegate.swift in Sources */,
+				FE5FC8431EE348F300295A13 /* EatalyNavBar.swift in Sources */,
 				A0C1C2ED1E0997F700A2D111 /* FirstViewDoubleImageViewCell.swift in Sources */,
 				A0C1C2EF1E09980300A2D111 /* FirstViewTableViewCell.swift in Sources */,
 				A0C1C2E31E09969B00A2D111 /* EatalyService.swift in Sources */,
+				FE5FC8401EE31D6500295A13 /* EatalyItem.swift in Sources */,
 				A0C1C2EB1E0997E500A2D111 /* FirstViewBigImageViewCell.swift in Sources */,
 				E13D54931E968A2B00C12449 /* ImageManager.swift in Sources */,
 				A0C1C2E91E09979800A2D111 /* Category.swift in Sources */,

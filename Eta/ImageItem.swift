@@ -9,9 +9,8 @@
 import Foundation
 import UIKit
 
-class ImageItem {
+class ImageItem: EatalyItem  {
     
-    var box_id: Int = 0
     var url_image: String = ""
     var title: String = ""
     var command: String = ""

@@ -9,9 +9,8 @@
 import Foundation
 
 
-class Category {
+class Category: EatalyItem {
     
-    var id: Int = 0
     var position: Int = 0
     var final: Bool = false
     var name: String = ""

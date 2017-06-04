@@ -31,7 +31,7 @@ class ImageManager: Manager {
                 print("Ciao! PArso imageJSon e sono al secondo step IMAGES")
             let thisImage = ImageItem()
                 thisImage.foreground = subjson[0].stringValue
-                thisImage.box_id = subjson["boxId"].intValue
+                thisImage.id = subjson["boxId"].intValue
                 thisImage.url_image = subjson["urlImage"].stringValue
                 thisImage.title = subjson["title"].stringValue
                 thisImage.command = subjson["command"].stringValue

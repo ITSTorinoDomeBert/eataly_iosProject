@@ -8,10 +8,9 @@
 
 import Foundation
 
-class Product {
+class Product: EatalyItem {
     
     var is_in_stock: Int = 0
-    let id: Int = 0
     var price: Double = 0.00
     let name: String = ""
     var producer: String = ""
