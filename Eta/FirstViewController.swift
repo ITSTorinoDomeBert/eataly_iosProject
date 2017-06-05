@@ -24,8 +24,30 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     var categoryManager = CategoryManager()
     var imageManager = ImageManager()
     
+    override func viewDidAppear(_ animated: Bool) {
+        // 1
+        let nav = self.navigationController?.navigationBar
+        // 2
+        nav?.barTintColor = UIColor.white
+        nav?.tintColor = UIColor(red: 192, green: 187, blue: 182, alpha: 1)
+        // 3
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = #imageLiteral(resourceName: "eataly_title")
+        // 5
+        navigationItem.titleView = imageView
+        navigationItem.backBarButtonItem?.customView = UIImageView(image: #imageLiteral(resourceName: "left_arrow"))
+        
+        let cartView = UIImageView(frame: CGRect(x: 0, y: 0, width: 27, height: 27))
+        cartView.contentMode = .scaleAspectFit
+        cartView.image = #imageLiteral(resourceName: "shopping_cart")
+        navigationItem.rightBarButtonItem?.customView = cartView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        myTable.rowHeight = UITableViewAutomaticDimension
+      //  myTable.estimatedRowHeight = 200
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -35,18 +57,42 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            myTable.rowHeight = 200
+           // myTable.rowHeight = 200
             let cell = tableView.dequeueReusableCell(withIdentifier: "bigImage", for: indexPath) as! FirstViewBigImageViewCell
             
-            cell.bigImage.image = imageManager.setImage(imagePosition: 0)
+            cell.bigImage.image = imageManager.images[0].image
+            
+            
+            let imgWidth = cell.bigImage.image?.size.width
+            let imgHeight = cell.bigImage.image?.size.height
+            let imgRatio = imgWidth! / imgHeight!
+            print("Questa e`' il rapporto: \(imgRatio)")
+            let cellWidth = myTable.frame.width
+            let height = (cellWidth / imgRatio)
+            print("Questa e`' l' altezza che cercavi: \(height)")
+            myTable.rowHeight = height
+ 
+            //myTable.rowHeight = 201
             return cell
         }
         if indexPath.row == 1 {
-            myTable.rowHeight = 120
+           // myTable.rowHeight = 120
             let cell = tableView.dequeueReusableCell(withIdentifier: "doubIeImage", for: indexPath) as! FirstViewDoubleImageViewCell
             
-            cell.firstSmallImg.image = imageManager.setImage(imagePosition: 1)
-            cell.secondSmallImg.image = imageManager.setImage(imagePosition: 2)
+            cell.firstSmallImg.image = imageManager.images[1].image
+            cell.secondSmallImg.image = imageManager.images[2].image
+            
+            
+            let imgWidth = cell.firstSmallImg.image?.size.width
+            let imgHeight = cell.firstSmallImg.image?.size.height
+            let imgRatio = imgWidth! / imgHeight!
+            print("Questa e`' il rapporto: \(imgRatio)")
+            let cellWidth = (myTable.frame.width)/2
+            let height = (cellWidth / imgRatio)
+            print("Questa e`' l' altezza che cercavi: \(height)")
+            myTable.rowHeight = height
+ 
+            //myTable.rowHeight = 100.5
             return cell
         }
         myTable.rowHeight = 70

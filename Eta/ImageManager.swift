@@ -16,6 +16,7 @@ class ImageManager: Manager {
   
     init() {
         super.init(service: EatalyService(eatalyUrl: .IMAGE))
+        self.setImage()
     }
     
     override func parseJson(data: Data) {
@@ -50,16 +51,18 @@ class ImageManager: Manager {
    //     delegate?.didLoadData()
     }
     
-    func setImage(imagePosition: Int) -> UIImage{
-        
-        let urlImage = self.images[imagePosition].url_image
-        guard let data = EatalyService(url: urlImage).callService() else {
-            return #imageLiteral(resourceName: "placeholder")
+    func setImage(){
+        for i in 0..<self.images.count {
+            self.images[i].image = #imageLiteral(resourceName: "placeholder")
+            let urlImage = self.images[i].url_image
+            guard let data = EatalyService(url: urlImage).callService() else {
+                return
+            }
+            guard let image = UIImage(data: data) else {
+                return
+            }
+            self.images[i].image = image
         }
-        guard let image = UIImage(data: data) else {
-            return #imageLiteral(resourceName: "placeholder")
-        }
-        return image
-    } 
+    }
  
 }

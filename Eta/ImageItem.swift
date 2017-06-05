@@ -15,4 +15,5 @@ class ImageItem: EatalyItem  {
     var title: String = ""
     var command: String = ""
     var foreground: String = ""
+    var image: UIImage?
 }
