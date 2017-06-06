@@ -60,19 +60,4 @@ class EatalyService {
         }
         return image
     }
-  /*
-    func callSecondService(serviceName: String) -> Data? {
-        
-        let myUrl = NSURL(string: serviceName)
-        let session = URLSession.shared
-        var dataStored: Data?
-        
-        let task = session.dataTask(with: myUrl! as URL) {(data, response, error) in
-            dataStored = data
-        }
-
-        task.resume()
-        return dataStored
-    }
-*/
 }

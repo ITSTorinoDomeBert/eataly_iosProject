@@ -66,7 +66,7 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             
             cell.bigImage.image = imageManager.images[0].image
             
-            
+            //I use this way for setting the right ratio size of the image
             let imgWidth = cell.bigImage.image?.size.width
             let imgHeight = cell.bigImage.image?.size.height
             let imgRatio = imgWidth! / imgHeight!
@@ -75,25 +75,21 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
             let height = (cellWidth / imgRatio)
             print("Questa e`' l' altezza che cercavi: \(height)")
             myTable.rowHeight = height
- 
-            //myTable.rowHeight = 201
             return cell
+            
         }
         if indexPath.row == 1 {
-           // myTable.rowHeight = 120
             let cell = tableView.dequeueReusableCell(withIdentifier: "doubIeImage", for: indexPath) as! FirstViewDoubleImageViewCell
             
             cell.firstSmallImg.image = imageManager.images[1].image
             cell.secondSmallImg.image = imageManager.images[2].image
             
-            
+            //image Height
             let imgWidth = cell.firstSmallImg.image?.size.width
             let imgHeight = cell.firstSmallImg.image?.size.height
             let imgRatio = imgWidth! / imgHeight!
-            print("Questa e`' il rapporto: \(imgRatio)")
             let cellWidth = (myTable.frame.width)/2
             let height = (cellWidth / imgRatio)
-            print("Questa e`' l' altezza che cercavi: \(height)")
             myTable.rowHeight = height
  
             //myTable.rowHeight = 100.5
@@ -109,29 +105,14 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row > 2{
-            let products = ProductManager(categoryId: categoryManager.categories[indexPath.row - 2].id, productSortBy: .name)
-            print("Sti shiacciando un tasto della lista")
-            performSegue(withIdentifier: "toProductView", sender: products)
+            let category = categoryManager.categories[indexPath.row]
+            performSegue(withIdentifier: "toProductView", sender: category)
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! ProductCollectionViewController
         
-        destination.productManager = sender as? ProductManager
+        destination.category = sender as? Category
     }
-  /*
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var idCategoryOrImage: Int?
-        if indexPath.row == 0 {
-            idCategoryOrImage = imageManager.images[0].id
-        }
-        if indexPath.row == 1 {
-            idCategoryOrImage = imageManager.images[1].id
-        } else {
-            idCategoryOrImage = categoryManager.categories[(indexPath.row - 2)].id
-        }
-        
-    }
-  */
 }

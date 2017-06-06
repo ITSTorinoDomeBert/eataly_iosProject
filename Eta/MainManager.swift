@@ -7,16 +7,12 @@
 //
 
 import Foundation
-/*
-protocol ManagerDelegate {
-    //Assures all the data are stored
-    func didLoadData()
-}
-*/
+
 protocol ManagerProtocol {
     func parseJson(data: Data)
 }
 
+//Manager class and its subclasses provide the object for the Eataly's views
 class Manager: ManagerProtocol{
     
     let eatalyService: EatalyService

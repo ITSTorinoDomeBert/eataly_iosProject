@@ -12,6 +12,7 @@ import UIKit
 class ProductCollectionViewController: UICollectionViewController {
     
     var productManager: ProductManager?
+    var category: Category?
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -21,8 +22,7 @@ class ProductCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  //      myTable.rowHeight = UITableViewAutomaticDimension
-        //  myTable.estimatedRowHeight = 200
+        self.productManager = ProductManager(categoryId: (category?.id)!, productSortBy: .name)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -43,6 +43,15 @@ class ProductCollectionViewController: UICollectionViewController {
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toDetailProduct", sender: productManager?.products[indexPath.item])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! DetailProductViewController
+        
+        destination.product = sender as! Product
+    }
     
     
 }

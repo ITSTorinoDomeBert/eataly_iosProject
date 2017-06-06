@@ -12,7 +12,6 @@ import UIKit
 class ImageManager: Manager {
     
     var images = [ImageItem]()
- //   var delegate: ManagerDelegate?
   
     init() {
         super.init(service: EatalyService(eatalyUrl: .IMAGE))
@@ -24,12 +23,10 @@ class ImageManager: Manager {
         guard let index = json["data"].array else {
             return
         }
-            print("Ciao! sono in Parse imageJSon e sono al primo step DATA")
         guard let images = index.last  else {
             return
         }
         for (_,subjson):(String,JSON) in images["images"] {
-                print("Ciao! PArso imageJSon e sono al secondo step IMAGES")
             let thisImage = ImageItem()
                 thisImage.foreground = subjson[0].stringValue
                 thisImage.id = subjson["boxId"].intValue
@@ -41,14 +38,6 @@ class ImageManager: Manager {
             
             self.images.append(thisImage)
         }
-        /*
-        print(images.last?.box_id)
-        print(images.last?.url_image)
-        print(images.last?.title)
-        print(images.last?.command)
-        print(images.last?.foreground)
- */
-   //     delegate?.didLoadData()
     }
     
     func setImage(){

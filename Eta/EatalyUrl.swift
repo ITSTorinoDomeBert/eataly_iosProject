@@ -61,7 +61,7 @@ enum EatalyUrl{
         case let .PRODUCTS(id_category, evaluation):
             return BASE_URL + encodedUrl(urlToEncode: "get_products.sr?data={\"id_category\":\"\(id_category)\"\(evaluation.sortBy)")
         case .DETAIL_PRODUCT(id_product: let id_product):
-            return BASE_URL +  encodedUrl(urlToEncode: "get_product_info?data={\"id_product\":\"\(id_product)\",\"id_store\":\"7\",\"favorite\":\"1\"}")
+            return BASE_URL +  encodedUrl(urlToEncode: "get_product_info.sr?data={\"id_product\":\"\(id_product)\",\"id_store\":\"7\",\"favorite\":\"1\"}")
         case .MOSTPOUPALR(id_category: let id_category):
             return BASE_URL +  encodedUrl(urlToEncode: "get_most_popular.sr?data={\"id_category\":\"\(id_category)\",\"id_store\":\"7\",\"sort_type\":\"position\"}")
         }

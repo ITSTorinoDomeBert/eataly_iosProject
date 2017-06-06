@@ -35,8 +35,6 @@ class ProductManager: Manager {
             for innerItem in subJson["images"].array! {
                 aProduct.url_image = innerItem["url"].stringValue
             }
-            
-            print("The image of the PRODUCT url is: \(aProduct.url_image)")
             self.products.append(aProduct)
         }
     }

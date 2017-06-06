@@ -13,7 +13,6 @@ import UIKit
 class CategoryManager: Manager {
     
     var categories = [Category]()
- //   var delegate: ManagerDelegate?
     
     init() {
         super.init(service: EatalyService(eatalyUrl: .CATEGORY))
@@ -34,9 +33,7 @@ class CategoryManager: Manager {
             aCategory.thumbnail_url = subJson["thumbnailURL"].stringValue
             
             self.categories.append(aCategory)
-           // print(categories.last?.getString ?? "The element was not a Category")
         }
-     //   delegate?.didLoadData()
     }
     
     func setIconForCategory(position: Int) -> UIImage?{
@@ -52,16 +49,5 @@ class CategoryManager: Manager {
         }
         return image
     }
-    
-    /*func setIcon(iconPosition: Int) -> UIImage? {
-        let stringImage = EatalyUrl.ICON(iconPosition).string
-        let url = URL(string: stringImage)
-        let data = try? Data(contentsOf: url!)
-        
-        let image = UIImage(data: data!)
-        
-        return image
-    } */
-    
     
 }
