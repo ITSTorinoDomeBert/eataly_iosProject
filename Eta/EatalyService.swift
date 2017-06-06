@@ -21,7 +21,12 @@ class EatalyService {
         self.url = eatalyUrl.string
     }
     
+   // init(eatalyProductUrl: EatalyUrl.ProductSort) {
+   //     self.url = eatalyProductUrl.sortBy
+   // }
+    
     func callService() -> Data? {
+        print("This is my current url! ::::: \(self.url)")
         let url = URL(string: self.url)
         let data = try? Data(contentsOf: url!)
         
@@ -55,19 +60,4 @@ class EatalyService {
         }
         return image
     }
-  /*
-    func callSecondService(serviceName: String) -> Data? {
-        
-        let myUrl = NSURL(string: serviceName)
-        let session = URLSession.shared
-        var dataStored: Data?
-        
-        let task = session.dataTask(with: myUrl! as URL) {(data, response, error) in
-            dataStored = data
-        }
-
-        task.resume()
-        return dataStored
-    }
-*/
 }

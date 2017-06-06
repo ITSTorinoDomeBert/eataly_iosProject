@@ -23,7 +23,14 @@
 		E13D54931E968A2B00C12449 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D54921E968A2B00C12449 /* ImageManager.swift */; };
 		E13D54951E968C7C00C12449 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13D54941E968C7C00C12449 /* ImageItem.swift */; };
 		E1916F681E97761F00AA15CD /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1916F671E97761F00AA15CD /* Product.swift */; };
+		FE5FC8401EE31D6500295A13 /* EatalyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5FC83F1EE31D6500295A13 /* EatalyItem.swift */; };
+		FE6AB44A1EE5BDD800F7CF79 /* ProductCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6AB4491EE5BDD800F7CF79 /* ProductCollectionViewController.swift */; };
+		FE6AB44C1EE5BDF500F7CF79 /* ProductCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6AB44B1EE5BDF500F7CF79 /* ProductCollectionCell.swift */; };
+		FE6AB44F1EE5F7BC00F7CF79 /* ProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6AB44E1EE5F7BC00F7CF79 /* ProductManager.swift */; };
 		FE8B91171ECF71CA00C973D4 /* MainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8B91161ECF71CA00C973D4 /* MainManager.swift */; };
+		FEE87BD61EE6B361006CA4C7 /* DetailProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE87BD51EE6B361006CA4C7 /* DetailProduct.swift */; };
+		FEE87BD91EE6B5C6006CA4C7 /* DetailProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEE87BD81EE6B5C6006CA4C7 /* DetailProductViewController.swift */; };
+		FEF4941E1EE6BC8E00E480FD /* DetailProductManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF4941D1EE6BC8E00E480FD /* DetailProductManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,7 +52,14 @@
 		E13D54921E968A2B00C12449 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		E13D54941E968C7C00C12449 /* ImageItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
 		E1916F671E97761F00AA15CD /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		FE5FC83F1EE31D6500295A13 /* EatalyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EatalyItem.swift; sourceTree = "<group>"; };
+		FE6AB4491EE5BDD800F7CF79 /* ProductCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewController.swift; sourceTree = "<group>"; };
+		FE6AB44B1EE5BDF500F7CF79 /* ProductCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCollectionCell.swift; sourceTree = "<group>"; };
+		FE6AB44E1EE5F7BC00F7CF79 /* ProductManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductManager.swift; sourceTree = "<group>"; };
 		FE8B91161ECF71CA00C973D4 /* MainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainManager.swift; sourceTree = "<group>"; };
+		FEE87BD51EE6B361006CA4C7 /* DetailProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProduct.swift; sourceTree = "<group>"; };
+		FEE87BD81EE6B5C6006CA4C7 /* DetailProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductViewController.swift; sourceTree = "<group>"; };
+		FEF4941D1EE6BC8E00E480FD /* DetailProductManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailProductManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,24 +104,28 @@
 			path = Eta;
 			sourceTree = "<group>";
 		};
-		A0C1C2E11E09967700A2D111 /* Connection classes */ = {
+		A0C1C2E11E09967700A2D111 /* ConnectionClasses */ = {
 			isa = PBXGroup;
 			children = (
 				FE80EDC31EB7DEA8002AE1CF /* Base */,
 				A0C1C2E61E09975200A2D111 /* CategoryManager.swift */,
 				FE8B91161ECF71CA00C973D4 /* MainManager.swift */,
+				FE6AB44E1EE5F7BC00F7CF79 /* ProductManager.swift */,
+				FEF4941D1EE6BC8E00E480FD /* DetailProductManager.swift */,
 				E13D54921E968A2B00C12449 /* ImageManager.swift */,
 			);
-			name = "Connection classes";
+			name = ConnectionClasses;
 			sourceTree = "<group>";
 		};
 		E1A25DC71E9659DC00CB703D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A0C1C2E11E09967700A2D111 /* Connection classes */,
+				A0C1C2E11E09967700A2D111 /* ConnectionClasses */,
 				A0C1C2E81E09979800A2D111 /* Category.swift */,
+				FE5FC83F1EE31D6500295A13 /* EatalyItem.swift */,
 				E13D54941E968C7C00C12449 /* ImageItem.swift */,
 				E1916F671E97761F00AA15CD /* Product.swift */,
+				FEE87BD51EE6B361006CA4C7 /* DetailProduct.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -131,9 +149,28 @@
 			name = Cell;
 			sourceTree = "<group>";
 		};
+		FE6AB4481EE5BDA300F7CF79 /* ProductCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				FE6AB4491EE5BDD800F7CF79 /* ProductCollectionViewController.swift */,
+				FE6AB44D1EE5BDF900F7CF79 /* Cell */,
+			);
+			name = ProductCollectionView;
+			sourceTree = "<group>";
+		};
+		FE6AB44D1EE5BDF900F7CF79 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FE6AB44B1EE5BDF500F7CF79 /* ProductCollectionCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		FE80EDC11EB7DCEA002AE1CF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FEE87BD71EE6B5AF006CA4C7 /* DetailView */,
+				FE6AB4481EE5BDA300F7CF79 /* ProductCollectionView */,
 				FE6265F71ED248CF0034AEE4 /* FirstView */,
 			);
 			name = ViewControllers;
@@ -146,6 +183,14 @@
 				A0C1C2E41E09972F00A2D111 /* EatalyUrl.swift */,
 			);
 			name = Base;
+			sourceTree = "<group>";
+		};
+		FEE87BD71EE6B5AF006CA4C7 /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				FEE87BD81EE6B5C6006CA4C7 /* DetailProductViewController.swift */,
+			);
+			name = DetailView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,10 +273,17 @@
 				A0C1C2E51E09972F00A2D111 /* EatalyUrl.swift in Sources */,
 				A0C1C2F11E09985900A2D111 /* SwiftyJSON.swift in Sources */,
 				A0C1C2D01E0993A800A2D111 /* AppDelegate.swift in Sources */,
+				FEF4941E1EE6BC8E00E480FD /* DetailProductManager.swift in Sources */,
+				FEE87BD91EE6B5C6006CA4C7 /* DetailProductViewController.swift in Sources */,
 				A0C1C2ED1E0997F700A2D111 /* FirstViewDoubleImageViewCell.swift in Sources */,
 				A0C1C2EF1E09980300A2D111 /* FirstViewTableViewCell.swift in Sources */,
 				A0C1C2E31E09969B00A2D111 /* EatalyService.swift in Sources */,
+				FE6AB44C1EE5BDF500F7CF79 /* ProductCollectionCell.swift in Sources */,
+				FE5FC8401EE31D6500295A13 /* EatalyItem.swift in Sources */,
 				A0C1C2EB1E0997E500A2D111 /* FirstViewBigImageViewCell.swift in Sources */,
+				FEE87BD61EE6B361006CA4C7 /* DetailProduct.swift in Sources */,
+				FE6AB44F1EE5F7BC00F7CF79 /* ProductManager.swift in Sources */,
+				FE6AB44A1EE5BDD800F7CF79 /* ProductCollectionViewController.swift in Sources */,
 				E13D54931E968A2B00C12449 /* ImageManager.swift in Sources */,
 				A0C1C2E91E09979800A2D111 /* Category.swift in Sources */,
 				E1916F681E97761F00AA15CD /* Product.swift in Sources */,
