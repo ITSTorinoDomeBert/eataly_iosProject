@@ -23,6 +23,7 @@ class DetailProductViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         setNavBarEataly(aViewController: self)
         self.navigationItem.backBarButtonItem?.customView = UIImageView(image: #imageLiteral(resourceName: "left_arrow"))
+        self.navigationItem.title = product?.name
     }
     
     override func viewDidLoad() {
