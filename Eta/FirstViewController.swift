@@ -9,7 +9,14 @@
 import Foundation
 import UIKit
 
-
+//Function that set the Eatalay NavBab, for this viewcontroller and the nexts.
+//maybe put in another context
+func setNavBarEataly(aViewController: UIViewController) {
+    let cartView = UIImageView(frame: CGRect(x: 0, y: 0, width: 27, height: 27))
+    cartView.contentMode = .scaleAspectFit
+    cartView.image = #imageLiteral(resourceName: "shopping_cart")
+    aViewController.navigationItem.rightBarButtonItem?.customView = cartView
+}
 /*
  extension MyViewController: ManagerDelegate {
     func didLoadData() {
@@ -23,29 +30,26 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var myTable: UITableView!
     var categoryManager = CategoryManager()
     var imageManager = ImageManager()
+    var productManager = ProductManager(categoryId: 1016, productSortBy: .name)
     
     override func viewDidAppear(_ animated: Bool) {
-        // 1
+        setNavBarEataly(aViewController: self)
         let nav = self.navigationController?.navigationBar
-        // 2
         nav?.barTintColor = UIColor.white
         nav?.tintColor = UIColor(red: 192, green: 187, blue: 182, alpha: 1)
-        // 3
+        
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         imageView.contentMode = .scaleAspectFit
         imageView.image = #imageLiteral(resourceName: "eataly_title")
-        // 5
-        navigationItem.titleView = imageView
-        navigationItem.backBarButtonItem?.customView = UIImageView(image: #imageLiteral(resourceName: "left_arrow"))
-        
-        let cartView = UIImageView(frame: CGRect(x: 0, y: 0, width: 27, height: 27))
-        cartView.contentMode = .scaleAspectFit
-        cartView.image = #imageLiteral(resourceName: "shopping_cart")
-        navigationItem.rightBarButtonItem?.customView = cartView
+        self.navigationItem.titleView = imageView
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        myTable.delegate = self
+        myTable.dataSource = self
         myTable.rowHeight = UITableViewAutomaticDimension
       //  myTable.estimatedRowHeight = 200
     }
@@ -101,6 +105,20 @@ class FirstViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.arrow?.image = #imageLiteral(resourceName: "right_arrow")
         cell.icon?.image = categoryManager.setIconForCategory(position: (indexPath.row - 2))
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row > 2{
+            let products = ProductManager(categoryId: categoryManager.categories[indexPath.row - 2].id, productSortBy: .name)
+            print("Sti shiacciando un tasto della lista")
+            performSegue(withIdentifier: "toProductView", sender: products)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! ProductCollectionViewController
+        
+        destination.productManager = sender as? ProductManager
     }
   /*
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

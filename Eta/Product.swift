@@ -7,13 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
 class Product: EatalyItem {
     
     var is_in_stock: Int = 0
     var price: Double = 0.00
-    let name: String = ""
+    var name: String = ""
     var producer: String = ""
-    let img_url: String = ""
+    var url_image: String = ""
+    var image: UIImage?
     
 }

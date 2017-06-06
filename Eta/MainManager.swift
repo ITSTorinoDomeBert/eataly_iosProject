@@ -13,7 +13,11 @@ protocol ManagerDelegate {
     func didLoadData()
 }
 */
-class Manager{
+protocol ManagerProtocol {
+    func parseJson(data: Data)
+}
+
+class Manager: ManagerProtocol{
     
     let eatalyService: EatalyService
     

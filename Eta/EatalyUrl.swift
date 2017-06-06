@@ -10,6 +10,16 @@ import Foundation
 
 let BASE_URL = "http://app-backend.eataly.net/Eataly/"
 
+let eatalyCharachetSet = CharacterSet.urlPathAllowed.union(.urlQueryAllowed).union(CharacterSet.urlHostAllowed)
+
+func encodedUrl(urlToEncode: String) -> String {
+    guard let urlEncoded = urlToEncode.addingPercentEncoding(withAllowedCharacters: eatalyCharachetSet) else {
+        print("WARNING! URL not valid for EatalyService!")
+        return urlToEncode
+    }
+    return urlEncoded
+}
+
 enum EatalyUrl{
     
     case CATEGORY
@@ -46,15 +56,16 @@ enum EatalyUrl{
             return BASE_URL + "get_images.sr?data=%7B%22id_store%22%3A%227%22%2C%22dash_code%22%3A%22SHOPONLINE%22%7D"
         case .ICON(id_category: let id_category):
                 return "http://www.eataly.net//media/catalog/category/../../wysiwyg/appreply/\(id_category).png"
+        
+        //Cases to encode!
         case let .PRODUCTS(id_category, evaluation):
-            return BASE_URL + "get_products.sr?data={\"id_category\":\"\(id_category)\"" + evaluation.sortBy
+            return BASE_URL + encodedUrl(urlToEncode: "get_products.sr?data={\"id_category\":\"\(id_category)\"\(evaluation.sortBy)")
         case .DETAIL_PRODUCT(id_product: let id_product):
-            return BASE_URL + "get_product_info?data={\"id_product\":\"\(id_product)\",\"id_store\":\"7\",\"favorite\":\"1\"}"
+            return BASE_URL +  encodedUrl(urlToEncode: "get_product_info?data={\"id_product\":\"\(id_product)\",\"id_store\":\"7\",\"favorite\":\"1\"}")
         case .MOSTPOUPALR(id_category: let id_category):
-            return BASE_URL + "get_most_popular.sr?data={\"id_category\":\"\(id_category)\",\"id_store\":\"7\",\"sort_type\":\"position\"}"
+            return BASE_URL +  encodedUrl(urlToEncode: "get_most_popular.sr?data={\"id_category\":\"\(id_category)\",\"id_store\":\"7\",\"sort_type\":\"position\"}")
         }
     }
-    
     
 }
 /*

@@ -21,7 +21,12 @@ class EatalyService {
         self.url = eatalyUrl.string
     }
     
+   // init(eatalyProductUrl: EatalyUrl.ProductSort) {
+   //     self.url = eatalyProductUrl.sortBy
+   // }
+    
     func callService() -> Data? {
+        print("This is my current url! ::::: \(self.url)")
         let url = URL(string: self.url)
         let data = try? Data(contentsOf: url!)
         
